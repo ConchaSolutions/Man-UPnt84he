@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Dance It Out Infographic</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>
+  :root{--pink:#ff2d95;--cyan:#00e5ff;--yellow:#ffe600;--lime:#8cff00;--orange:#ff7a00;--violet:#a855ff;--ink:#12002b;}
+  html,body{margin:0;background:#12002b;}
+  #art{width:1500px;height:1800px;position:relative;font-family:"Impact","Arial Black",sans-serif;color:#fff;overflow:hidden}
+  h1{margin:0;text-align:center;font-size:190px;line-height:.9;letter-spacing:4px;text-transform:uppercase;
+     background:linear-gradient(90deg,var(--yellow),var(--pink),var(--cyan));-webkit-background-clip:text;background-clip:text;color:transparent;
+     -webkit-text-stroke:3px #fff;paint-order:stroke fill;transform:rotate(-3deg);padding-top:60px}
+  .sub{text-align:center;font-size:56px;letter-spacing:10px;color:var(--lime);margin-top:18px}
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:34px;padding:50px 60px 0}
+  .card{border:8px solid var(--c);border-radius:36px;background:rgba(255,255,255,.06);position:relative;height:470px;
+        box-shadow:0 0 0 6px rgba(0,0,0,.4),0 0 40px var(--c);transform:rotate(var(--r))}
+  .num{position:absolute;top:-34px;left:-26px;width:90px;height:90px;border-radius:50%;background:var(--c);color:var(--ink);
+       font-size:64px;display:flex;align-items:center;justify-content:center;border:6px solid #fff}
+  .card svg{position:absolute;left:0;top:30px;width:100%;height:320px}
+  .name{position:absolute;bottom:70px;width:100%;text-align:center;font-size:46px;color:var(--c);letter-spacing:2px}
+  .cnt{position:absolute;bottom:14px;width:100%;text-align:center;font-size:28px;color:#fff;letter-spacing:3px;white-space:nowrap;opacity:.9}
+  .beat{display:flex;justify-content:center;gap:22px;margin-top:90px}
+  .beat i{width:64px;height:64px;border-radius:50%;display:block}
+  .foot{text-align:center;margin-top:50px;font-size:96px;letter-spacing:8px;color:var(--yellow);text-shadow:6px 6px 0 var(--pink)}
+</style></head>
+<body>
+<div id="art">
+  <h1>Dance It Out</h1>
+  <div class="sub">6 STEPS &bull; 1 BEAT &bull; NO RULES</div>
+  <div class="grid" id="grid"></div>
+  <div class="beat" id="beat"></div>
+  <div class="foot">REPEAT. SMILE. GLOW.</div>
+</div>
+<script>
+// joints on a 100x140 canvas: [x,y]
+const base={head:[50,18],neck:[50,32],hip:[50,80]};
+const poses=[
+ {n:"SHOULDER TAP",c:"var(--pink)",r:"-2deg",cnt:"TAP-TAP-TAP-TAP",
+  lE:[30,56],lH:[40,38],rE:[70,56],rH:[60,38],lK:[42,106],lF:[38,134],rK:[58,106],rF:[62,134]},
+ {n:"ARM SWING",c:"var(--cyan)",r:"1.5deg",cnt:"SWING LEFT-RIGHT",
+  lE:[28,54],lH:[10,74],rE:[72,54],rH:[90,74],lK:[40,106],lF:[34,134],rK:[60,106],rF:[66,134]},
+ {n:"CLAP",c:"var(--yellow)",r:"-1deg",cnt:"CLAP ON THE BEAT",
+  lE:[34,58],lH:[48,48],rE:[66,58],rH:[52,48],lK:[43,106],lF:[40,134],rK:[57,106],rF:[60,134]},
+ {n:"ARMS UP",c:"var(--lime)",r:"2deg",cnt:"REACH FOR THE SKY",
+  lE:[34,16],lH:[30,-6],rE:[66,16],rH:[70,-6],lK:[42,106],lF:[38,134],rK:[58,106],rF:[62,134]},
+ {n:"SIDE STEP",c:"var(--orange)",r:"-2deg",cnt:"STEP + TOUCH",
+  lE:[34,62],lH:[26,82],rE:[66,62],rH:[74,82],lK:[28,108],lF:[14,134],rK:[56,106],rF:[56,134]},
+ {n:"OPEN WIDE",c:"var(--violet)",r:"1deg",cnt:"ARMS OUT, SMILE!",
+  lE:[28,38],lH:[6,38],rE:[72,38],rH:[94,38],lK:[34,106],lF:[24,134],rK:[66,106],rF:[76,134]}
+];
+const col=["#ff2d95","#00e5ff","#ffe600","#8cff00","#ff7a00","#a855ff"];
+const L=(a,b,w,c)=>`<line x1="${a[0]}" y1="${a[1]}" x2="${b[0]}" y2="${b[1]}" stroke="${c}" stroke-width="${w}" stroke-linecap="round"/>`;
+const grid=document.getElementById("grid");
+poses.forEach((p,i)=>{
+  const sh=[50,38];
+  const body=L(base.neck,base.hip,9,"#fff")+
+    L(sh,p.lE,7,"#fff")+L(p.lE,p.lH,7,col[i])+L(sh,p.rE,7,"#fff")+L(p.rE,p.rH,7,col[i])+
+    L(base.hip,p.lK,8,"#fff")+L(p.lK,p.lF,8,col[i])+L(base.hip,p.rK,8,"#fff")+L(p.rK,p.rF,8,col[i]);
+  const face=`<circle cx="50" cy="18" r="13" fill="${col[i]}" stroke="#fff" stroke-width="3"/>
+    <path d="M44 19 Q50 27 56 19" stroke="#12002b" stroke-width="2.5" fill="none" stroke-linecap="round"/>`;
+  const sparks=`<circle cx="12" cy="20" r="3" fill="${col[i]}"/><circle cx="90" cy="110" r="3" fill="${col[i]}"/><path d="M88 14l3 7 7 3-7 3-3 7-3-7-7-3 7-3z" fill="#fff"/>`;
+  grid.insertAdjacentHTML("beforeend",
+   `<div class="card" style="--c:${col[i]};--r:${p.r}"><div class="num">${i+1}</div>
+    <svg viewBox="-5 -12 110 156">${sparks}${body}${face}</svg>
+    <div class="name">${p.n}</div><div class="cnt">${p.cnt}</div></div>`);
+});
+const beat=document.getElementById("beat");
+for(let i=0;i<8;i++)beat.insertAdjacentHTML("beforeend",`<i style="background:${col[i%6]};box-shadow:0 0 24px ${col[i%6]};transform:scale(${i%2?.75:1})"></i>`);
+</script></body></html>
