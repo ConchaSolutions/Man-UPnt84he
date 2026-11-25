@@ -6,36 +6,34 @@
   @font-face{font-family:"Marker";src:url("fonts/Permanent_Marker.ttf")}
   @font-face{font-family:"Hand";src:url("fonts/Patrick_Hand.ttf")}
   @font-face{font-family:"Brush";src:url("fonts/Caveat_Brush.ttf")}
-  :root{--ink:#1d1d22;--red:#e63946;--blue:#2f6fdb;--green:#2e9e4f;--orange:#f08a00;--purple:#7a4fc9;--pink:#e84a9a;--teal:#14a3b8;--yellow:#f2c200;}
+  /* Venezuelan flag palette: yellow, blue, red */
+  :root{--ink:#1d1d22;--yellow:#ffcc00;--blue:#1d4fb8;--red:#cf142b;}
   html,body{margin:0;background:#fff;}
   #art{width:1500px;height:1800px;position:relative;overflow:hidden;color:var(--ink);background:#fff}
-  .paper{position:absolute;inset:0;pointer-events:none;
-    background:radial-gradient(ellipse at 50% 40%,rgba(255,255,255,0) 55%,rgba(120,100,60,.10) 100%);}
-  .paper svg{position:absolute;inset:0;width:100%;height:100%;opacity:.5;mix-blend-mode:multiply}
+  .paper{position:absolute;inset:0;pointer-events:none}
+  .paper svg{position:absolute;inset:0;width:100%;height:100%;opacity:.22;mix-blend-mode:multiply}
   .wob{filter:url(#wob)} .wob2{filter:url(#wob2)}
   h1{margin:0;text-align:center;font:400 168px/0.95 "Marker",cursive;padding-top:44px;transform:rotate(-3deg);letter-spacing:2px}
   h1 .r{color:var(--red)} h1 .b{color:var(--blue)}
-  .under{display:block;margin:-6px auto 0;width:1100px;height:60px}
-  .sub{text-align:center;font:400 70px "Brush",cursive;margin-top:6px;letter-spacing:2px}
-  .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:44px 34px;padding:50px 56px 0;position:relative}
-  .card{border:6px solid var(--ink);border-radius:255px 18px 225px 18px/18px 225px 18px 255px;position:relative;height:480px;transform:rotate(var(--r));
-        background:rgba(255,255,255,.0)}
-  .card .tape{position:absolute;top:-22px;right:34px;width:90px;height:34px;background:var(--c);opacity:.55;transform:rotate(7deg)}
+  .under{display:block;margin:-4px auto 0;width:1100px;height:84px}
+  .sub{text-align:center;font:400 68px "Brush",cursive;margin-top:0;letter-spacing:2px}
+  .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:46px 34px;padding:50px 56px 0;position:relative}
+  .card{border:6px solid var(--ink);border-radius:255px 18px 225px 18px/18px 225px 18px 255px;position:relative;height:490px;transform:rotate(var(--r))}
+  .card .tape{position:absolute;top:-22px;right:34px;width:90px;height:34px;background:var(--c);opacity:.6;transform:rotate(7deg)}
   .num{position:absolute;top:-38px;left:-26px;width:84px;height:84px;border-radius:50%;background:var(--c);border:6px solid var(--ink);
        font:400 52px/76px "Marker",cursive;text-align:center;color:#fff;z-index:2}
-  .card svg{position:absolute;left:0;top:20px;width:100%;height:335px;overflow:visible}
-  .name{position:absolute;bottom:80px;width:100%;text-align:center;font:400 38px "Marker",cursive;color:var(--c);white-space:nowrap;
+  .card svg{position:absolute;left:0;top:14px;width:100%;height:350px;overflow:visible}
+  .name{position:absolute;bottom:78px;width:100%;text-align:center;font:400 38px "Marker",cursive;color:var(--c);white-space:nowrap;
         -webkit-text-stroke:1.2px var(--ink);paint-order:stroke fill}
-  .cnt{position:absolute;bottom:30px;width:100%;text-align:center;font:400 30px "Hand",cursive;color:var(--ink);white-space:nowrap}
-  .beat{display:flex;justify-content:center;gap:26px;margin-top:44px}
-  .beat i{width:56px;height:56px;border-radius:50%;display:block;border:5px solid var(--ink)}
-  .foot{text-align:center;margin-top:14px;font:400 104px "Brush",cursive;letter-spacing:3px;transform:rotate(-1.5deg)}
-  .foot span{color:var(--red)} .foot b{color:var(--blue);font-weight:400} .foot u{color:var(--green);text-decoration:none}
+  .cnt{position:absolute;bottom:28px;width:100%;text-align:center;font:400 30px "Hand",cursive;color:var(--ink);white-space:nowrap}
+  .stars{display:block;margin:34px auto 0;width:760px;height:110px}
+  .foot{text-align:center;margin-top:0;font:400 104px "Brush",cursive;letter-spacing:3px;transform:rotate(-1.5deg)}
+  .foot span{color:var(--red)} .foot b{color:var(--blue);font-weight:400} .foot u{color:#d99a00;text-decoration:none} .foot i{color:var(--red);font-style:normal}
 </style></head>
 <body>
 <svg width="0" height="0" style="position:absolute">
   <filter id="wob" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency="0.018" numOctaves="2" seed="4" result="n"/>
-    <feDisplacementMap in="SourceGraphic" in2="n" scale="7" xChannelSelector="R" yChannelSelector="G"/></filter>
+    <feDisplacementMap in="SourceGraphic" in2="n" scale="6" xChannelSelector="R" yChannelSelector="G"/></filter>
   <filter id="wob2" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="9" result="n"/>
     <feDisplacementMap in="SourceGraphic" in2="n" scale="4" xChannelSelector="R" yChannelSelector="G"/></filter>
   <filter id="grain"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="2"/><feColorMatrix values="0 0 0 0 .55  0 0 0 0 .5  0 0 0 0 .4  0 0 0 .22 0"/></filter>
@@ -43,82 +41,147 @@
 <div id="art">
   <div class="paper"><svg><rect width="100%" height="100%" filter="url(#grain)"/></svg></div>
   <h1 class="wob2"><span class="r">DANCE</span> IT <span class="b">OUT</span></h1>
-  <svg class="under wob" viewBox="0 0 1100 60"><path d="M10 38 C120 8 200 58 320 30 S520 8 640 36 S860 56 1090 20" fill="none" stroke="#f2c200" stroke-width="16" stroke-linecap="round" opacity=".9"/>
-    <path d="M30 48 C160 28 260 62 400 42 S700 30 840 46 S1000 40 1080 34" fill="none" stroke="#1d1d22" stroke-width="4" stroke-linecap="round"/></svg>
-  <div class="sub wob2">7 steps &bull; 1 beat &bull; no rules!</div>
+  <!-- tricolour marker underline: yellow / blue / red -->
+  <svg class="under wob" viewBox="0 0 1100 84">
+    <path d="M10 22 C120 0 200 40 320 20 S520 2 640 22 S860 40 1090 10" fill="none" stroke="#ffcc00" stroke-width="18" stroke-linecap="round"/>
+    <path d="M24 44 C150 26 260 58 400 40 S700 26 840 42 S1000 36 1076 28" fill="none" stroke="#1d4fb8" stroke-width="13" stroke-linecap="round"/>
+    <path d="M40 64 C170 48 280 74 420 58 S700 48 840 60 S1000 56 1064 50" fill="none" stroke="#cf142b" stroke-width="11" stroke-linecap="round"/>
+  </svg>
+  <div class="sub wob2">7 steps &bull; 1 beat &bull; puro sabor venezolano!</div>
   <div class="grid wob" id="grid"></div>
-  <div class="beat wob" id="beat"></div>
-  <div class="foot wob2"><span>repeat.</span> <b>smile.</b> <u>glow.</u> &#9825;</div>
+  <svg class="stars wob" id="stars" viewBox="0 0 760 110"></svg>
+  <div class="foot wob2"><span>repeat.</span> <b>smile.</b> <u>glow.</u> <i>&#9829;</i></div>
 </div>
 <script>
 // Poses reconstructed from frames of a tutorial screen recording (about 3.7s, 8 fps).
-// joints on a 100x140 canvas: [x,y]
-const INK="#1d1d22";
-const base={neck:[50,32],hip:[50,80]};
-const col=["#e63946","#2f6fdb","#2e9e4f","#f08a00","#7a4fc9","#e84a9a","#14a3b8","#f2c200"];
+// Joint coordinates on a 100x140 canvas: [x,y]
+const INK="#1d1d22", SKIN="#f3c9a5", HAIR="#2b1a14", DENIM="#8fb8e8";
+const RED="#cf142b", BLUE="#1d4fb8", YEL="#ffcc00";
+const col=[RED,BLUE,YEL,RED,BLUE,YEL,RED];
 const poses=[
  {n:"SPARKLE",r:"-1.5deg",cnt:"wiggle fingers by your head",
-  lE:[27,36],lH:[20,8],rE:[73,36],rH:[80,8],lK:[42,106],lF:[38,134],rK:[58,106],rF:[62,134],fx:"spark"},
+  lE:[27,36],lH:[21,10],rE:[73,36],rH:[79,10],lK:[43,108],lF:[39,134],rK:[57,108],rF:[61,134],fx:"spark"},
  {n:"SHIMMY",r:"1.2deg",cnt:"hands drop, flutter",
-  lE:[22,52],lH:[33,40],rE:[78,52],rH:[67,40],lK:[42,106],lF:[38,134],rK:[58,106],rF:[62,134],fx:"shimmy"},
+  lE:[22,52],lH:[33,42],rE:[78,52],rH:[67,42],lK:[43,108],lF:[39,134],rK:[57,108],rF:[61,134],fx:"shimmy"},
  {n:"SWING OUT",r:"-1deg",cnt:"arms sweep down and out",
-  lE:[26,58],lH:[6,80],rE:[74,58],rH:[94,80],lK:[40,106],lF:[34,134],rK:[60,106],rF:[66,134],fx:"swish"},
+  lE:[26,58],lH:[8,80],rE:[74,58],rH:[92,80],lK:[41,108],lF:[35,134],rK:[59,108],rF:[65,134],fx:"swish"},
  {n:"HIP BOUNCE",r:"1.8deg",cnt:"hands low, knees bounce",
-  lE:[24,60],lH:[38,82],rE:[76,60],rH:[62,82],lK:[32,104],lF:[26,134],rK:[68,104],rF:[74,134],fx:"bounce"},
+  lE:[27,62],lH:[40,80],rE:[73,62],rH:[60,80],lK:[33,106],lF:[28,134],rK:[67,106],rF:[72,134],fx:"bounce"},
  {n:"CHEST TAP",r:"-1.8deg",cnt:"pat your heart on the beat",
-  lE:[30,58],lH:[45,46],rE:[70,58],rH:[55,46],lK:[43,106],lF:[40,134],rK:[57,106],rF:[60,134],fx:"tap"},
+  lE:[31,58],lH:[46,47],rE:[69,58],rH:[54,47],lK:[43,108],lF:[40,134],rK:[57,108],rF:[60,134],fx:"tap"},
  {n:"REACH & TAP",r:"1deg",cnt:"one arm out, one hand taps",
-  lE:[26,40],lH:[3,30],rE:[68,60],rH:[54,47],lK:[40,106],lF:[32,134],rK:[58,106],rF:[64,134],fx:"reach"},
+  lE:[24,40],lH:[3,32],rE:[68,60],rH:[54,48],lK:[41,108],lF:[34,134],rK:[58,108],rF:[64,134],fx:"reach"},
  {n:"BLESS & CLAP",r:"-1.2deg",cnt:"hands up high, then clap!",
-  lE:[34,54],lH:[48,32],rE:[66,54],rH:[52,32],lK:[42,106],lF:[38,134],rK:[58,106],rF:[62,134],fx:"burst"}
+  lE:[34,54],lH:[48,33],rE:[66,54],rH:[52,33],lK:[43,108],lF:[39,134],rK:[57,108],rF:[61,134],fx:"burst"}
 ];
-const L=(a,b,w,c)=>`<line x1="${a[0]}" y1="${a[1]}" x2="${b[0]}" y2="${b[1]}" stroke="${c}" stroke-width="${w}" stroke-linecap="round"/>`;
+const P=(a)=>a[0]+" "+a[1];
+const line=(a,b,w,c)=>`<line x1="${a[0]}" y1="${a[1]}" x2="${b[0]}" y2="${b[1]}" stroke="${c}" stroke-width="${w}" stroke-linecap="round"/>`;
+// outlined "tube" limb through a chain of points: ink outline first, then fill on top (no inner joint lines)
+function tube(pts,w,fill){
+  let o="",f="";
+  for(let i=0;i<pts.length-1;i++){o+=line(pts[i],pts[i+1],w+3.6,INK);f+=line(pts[i],pts[i+1],w,fill);}
+  return o+f;
+}
 const star=(x,y,s,c)=>`<path transform="translate(${x} ${y}) scale(${s})" d="M0 -7l2 5 5 2-5 2-2 5-2-5-5-2 5-2z" fill="${c}" stroke="${INK}" stroke-width="1"/>`;
 function fx(p,c){
   const T=p.fx,S=`stroke="${c}" stroke-width="3.2" fill="none" stroke-linecap="round"`;
-  if(T==="spark")return star(14,2,1.2,"#f2c200")+star(86,2,1.2,"#f2c200")+star(8,24,.8,c)+star(92,24,.8,c);
-  if(T==="shimmy")return `<path d="M20 36q-6 4 0 8M14 34q-9 7 0 14M80 36q6 4 0 8M86 34q9 7 0 14" ${S}/>`;
-  if(T==="swish")return `<path d="M20 52q-14 6-16 22M80 52q14 6 16 22" ${S} stroke-dasharray="3 5"/>`;
-  if(T==="bounce")return `<path d="M50 110v10m-6-5l6 7 6-7" ${S}/>`;
-  if(T==="tap")return `<path d="M38 40l-5-5M62 40l5-5M50 36v-6" ${S}/>`;
-  if(T==="reach")return `<path d="M-4 44q4-6 0-12M-8 48q8-10 0-20" ${S}/><path d="M44 40l-4-4M60 42l4-4" ${S}/>`;
-  if(T==="burst")return `<path d="M50 20v-10M36 24l-7-7M64 24l7-7M30 34l-10-2M70 34l10-2" ${S}/>`;
+  if(T==="spark")return star(12,2,1.3,YEL)+star(88,2,1.3,YEL)+star(6,26,.8,c)+star(94,26,.8,c);
+  if(T==="shimmy")return `<path d="M17 38q-6 4 0 8M11 36q-9 7 0 14M83 38q6 4 0 8M89 36q9 7 0 14" ${S}/>`;
+  if(T==="swish")return `<path d="M18 54q-14 6-16 24M82 54q14 6 16 24" ${S} stroke-dasharray="3 5"/>`;
+  if(T==="bounce")return `<path d="M50 112v10m-6-5l6 7 6-7" ${S}/>`;
+  if(T==="tap")return `<path d="M36 42l-6-5M64 42l6-5M50 38v-8" ${S}/>`;
+  if(T==="reach")return `<path d="M-6 46q4-6 0-12M-11 50q8-10 0-20" ${S}/><path d="M60 46l-3-5M66 48l-1-6" ${S}/>`;
+  if(T==="burst")return `<path d="M50 -2v-8M34 4l-7-7M66 4l7-7M26 20l-9-3M74 20l9-3" ${S}/>`;
   return "";
 }
+function fingers(e,h){
+  const dx=h[0]-e[0],dy=h[1]-e[1],m=Math.hypot(dx,dy)||1,ux=dx/m,uy=dy/m;
+  let s="";
+  [-34,-12,12,34].forEach(a=>{const r=a*Math.PI/180,c=Math.cos(r),sn=Math.sin(r);
+    const vx=ux*c-uy*sn,vy=ux*sn+uy*c;
+    s+=`<line x1="${h[0]+vx*3}" y1="${h[1]+vy*3}" x2="${h[0]+vx*7}" y2="${h[1]+vy*7}" stroke="${INK}" stroke-width="2.2" stroke-linecap="round"/>`;
+    s+=`<line x1="${h[0]+vx*3}" y1="${h[1]+vy*3}" x2="${h[0]+vx*6.6}" y2="${h[1]+vy*6.6}" stroke="${SKIN}" stroke-width="1" stroke-linecap="round"/>`;});
+  return s;
+}
 function figure(p,c){
-  const sh=[50,38];
-  // marker-coloured shirt, slightly off the lines like real colouring
-  const shirt=`<path d="M40 40 L60 40 L58 72 L43 72 Z" fill="${c}" opacity=".75" transform="translate(2 1)"/>`;
-  const pants=`<path d="M43 76 L58 76 L${p.rK[0]+3} ${p.rK[1]} L${p.rF[0]+3} ${p.rF[1]-4} L${p.lF[0]-1} ${p.lF[1]-4} L${p.lK[0]-1} ${p.lK[1]} Z" fill="${c}" opacity=".28"/>`;
-  const body=L(base.neck,base.hip,4.6,INK)+
-    L(sh,p.lE,4.6,INK)+L(p.lE,p.lH,4.6,INK)+L(sh,p.rE,4.6,INK)+L(p.rE,p.rH,4.6,INK)+
-    L(base.hip,p.lK,4.8,INK)+L(p.lK,p.lF,4.8,INK)+L(base.hip,p.rK,4.8,INK)+L(p.rK,p.rF,4.8,INK);
-  const hands=[p.lH,p.rH].map(h=>`<circle cx="${h[0]}" cy="${h[1]}" r="4.2" fill="${c}" stroke="${INK}" stroke-width="2.2"/>`).join("");
-  const shoes=[p.lF,p.rF].map(f=>`<ellipse cx="${f[0]}" cy="${f[1]+2}" rx="7" ry="3.6" fill="${c}" stroke="${INK}" stroke-width="2.2"/>`).join("");
-  const head=`<circle cx="50" cy="18" r="13" fill="#fff" stroke="${INK}" stroke-width="3.6"/>
-    <path d="M37 16 Q40 3 52 5 Q63 6 63 17 Q55 9 46 11 Q40 12 37 16Z" fill="${INK}"/>
-    <circle cx="45.5" cy="19" r="1.6" fill="${INK}"/><circle cx="55" cy="19" r="1.6" fill="${INK}"/>
-    <path d="M44 24 Q50 30 57 24" stroke="${INK}" stroke-width="2.6" fill="none" stroke-linecap="round"/>
-    <circle cx="41" cy="24" r="2.6" fill="${c}" opacity=".5"/><circle cx="60" cy="24" r="2.6" fill="${c}" opacity=".5"/>`;
-  return pants+shirt+body+hands+shoes+head;
+  const sL=[41,39],sR=[59,39],hipL=[45,77],hipR=[55,77];
+  // long dark hair behind the body
+  const hairBack=`<path d="M37 14Q35 -3 50 2Q66 -3 63 14Q68 30 65 47Q58 50 57 41L43 41Q42 50 35 47Q32 30 37 14Z" fill="${HAIR}" stroke="${INK}" stroke-width="2"/>
+    <path d="M38 22Q37 34 39 44M62 22Q63 34 61 44" stroke="#5a3a2a" stroke-width="1.2" fill="none" stroke-linecap="round"/>`;
+  // wide-leg jeans
+  const legs=tube([hipL,p.lK,p.lF],14.5,DENIM)+tube([hipR,p.rK,p.rF],14.5,DENIM);
+  const seams=line(hipL,p.lK,1,"#5b86bd")+line(hipR,p.rK,1,"#5b86bd");
+  const waist=`<path d="M42.5 68H57.5L59 80H41Z" fill="${DENIM}" stroke="${INK}" stroke-width="2.4" stroke-linejoin="round"/>
+    <path d="M42 72H58" stroke="#5b86bd" stroke-width="1.6"/><circle cx="50" cy="72" r="1.8" fill="${YEL}" stroke="${INK}" stroke-width="1"/>`;
+  const shoes=[[p.lF,-3],[p.rF,3]].map(([f,dx])=>`<path d="M${f[0]-7+dx} ${f[1]-1}Q${f[0]+dx} ${f[1]-5} ${f[0]+7+dx} ${f[1]-1}Q${f[0]+10+dx} ${f[1]+5} ${f[0]+dx} ${f[1]+6}Q${f[0]-10+dx} ${f[1]+5} ${f[0]-7+dx} ${f[1]-1}Z" fill="#fff" stroke="${INK}" stroke-width="2.4" stroke-linejoin="round"/>
+    <path d="M${f[0]-6+dx} ${f[1]+3}Q${f[0]+dx} ${f[1]+6} ${f[0]+6+dx} ${f[1]+3}" stroke="${c}" stroke-width="2.4" fill="none" stroke-linecap="round"/>`).join("");
+  // midriff + halter crop top
+  const mid=`<path d="M43 56Q50 60 57 56L57.5 69H42.5Z" fill="${SKIN}" stroke="${INK}" stroke-width="2.4" stroke-linejoin="round"/><circle cx="50" cy="64" r=".9" fill="${INK}"/>`;
+  const top=`<path d="M40.5 38Q50 44 59.5 38L58 57Q50 61 42 57Z" fill="${c}" stroke="${INK}" stroke-width="2.4" stroke-linejoin="round"/>
+    <circle cx="50" cy="50" r="2.6" fill="none" stroke="${INK}" stroke-width="1.4"/><path d="M45 41L43 33M55 41L57 33" stroke="${INK}" stroke-width="1.6" stroke-linecap="round"/>`;
+  // arms
+  const arms=tube([sL,p.lE,p.lH],6.4,SKIN)+tube([sR,p.rE,p.rH],6.4,SKIN);
+  const hands=[p.lH,p.rH].map((h,i)=>fingers(i?p.rE:p.lE,h)+`<circle cx="${h[0]}" cy="${h[1]}" r="3.8" fill="${SKIN}" stroke="${INK}" stroke-width="2"/>`).join("");
+  // neck + head + face
+  const neck=`<path d="M46 27H54L54.5 38Q50 41 45.5 38Z" fill="${SKIN}" stroke="${INK}" stroke-width="2.2" stroke-linejoin="round"/>`;
+  const head=`<ellipse cx="50" cy="17" rx="10.5" ry="12.5" fill="${SKIN}" stroke="${INK}" stroke-width="2.6"/>
+    <path d="M39 15Q40 2 52 3.5Q62 4 61 15Q57 8 49 9Q42 10 39 15Z" fill="${HAIR}" stroke="${INK}" stroke-width="1.6" stroke-linejoin="round"/>
+    <path d="M44.5 16Q46.5 13.8 48.5 16M51.5 16Q53.5 13.8 55.5 16" stroke="${INK}" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+    <path d="M50 17.5l-1.2 3.2h2.4" stroke="${INK}" stroke-width="1.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M45 22.4Q50 28.5 55 22.4Q50 24 45 22.4Z" fill="${RED}" stroke="${INK}" stroke-width="1.6" stroke-linejoin="round"/>
+    <circle cx="42.3" cy="21.5" r="2.4" fill="${RED}" opacity=".28"/><circle cx="57.7" cy="21.5" r="2.4" fill="${RED}" opacity=".28"/>
+    <circle cx="39.6" cy="19" r="1.5" fill="${YEL}" stroke="${INK}" stroke-width="1"/><circle cx="60.4" cy="19" r="1.5" fill="${YEL}" stroke="${INK}" stroke-width="1"/>`;
+  return hairBack+legs+seams+waist+shoes+mid+top+arms+hands+neck+head;
 }
 const grid=document.getElementById("grid");
 poses.forEach((p,i)=>{
-  const c=col[i];
+  const c=col[i], numCol=(c===YEL)?INK:"#fff";
   grid.insertAdjacentHTML("beforeend",
-   `<div class="card" style="--c:${c};--r:${p.r}"><div class="tape"></div><div class="num">${i+1}</div>
-    <svg viewBox="-14 -14 128 160"><ellipse cx="50" cy="72" rx="56" ry="66" fill="${c}" opacity=".13"/>${fx(p,c)}${figure(p,c)}</svg>
-    <div class="name" style="--c:${c}">${p.n}</div><div class="cnt">${p.cnt}</div></div>`);
+   `<div class="card" style="--c:${c};--r:${p.r}"><div class="tape"></div><div class="num" style="color:${numCol}">${i+1}</div>
+    <svg viewBox="-14 -16 128 164"><ellipse cx="50" cy="72" rx="56" ry="68" fill="${c}" opacity=".12"/>${fx(p,c)}${figure(p,c)}</svg>
+    <div class="name">${p.n}</div><div class="cnt">${p.cnt}</div></div>`);
 });
-// card 8: loop
-const c8=col[7];
+
+// ---- 8th cell: Venezuelan panel (waving flag, 8 stars, tepui mountains, maracas) ----
+function flag(){
+  const x0=14,x1=90,W=(x)=>3.6*Math.sin((x-14)/9.5);
+  const stripe=(k,fill)=>{
+    const t=14+k*17,b=t+17;let a="",d="";
+    for(let x=x0;x<=x1;x+=2){a+=`${x===x0?"M":"L"}${x} ${(t+W(x)).toFixed(1)} `;}
+    for(let x=x1;x>=x0;x-=2){d+=`L${x} ${(b+W(x)).toFixed(1)} `;}
+    return `<path d="${a}${d}Z" fill="${fill}" stroke="${INK}" stroke-width="2.4" stroke-linejoin="round"/>`;
+  };
+  let st="";
+  for(let i=0;i<8;i++){
+    const ang=(-140+i*(100/7))*Math.PI/180,x=52+22*Math.cos(ang),y=14+17*1.5+ -22*Math.sin(ang)*0.0 + (22-22*Math.cos((-40-(-140))*Math.PI/360)*0) ;
+    const px=52+23*Math.sin((i-3.5)*0.28), py=31+17-6+W(px)+ (Math.abs(i-3.5)*Math.abs(i-3.5))*0.55 -4;
+    st+=`<path transform="translate(${px.toFixed(1)} ${py.toFixed(1)}) scale(.46)" d="M0 -7l2 5 5 2-5 2-2 5-2-5-5-2 5-2z" fill="#fff" stroke="${INK}" stroke-width="1.6"/>`;
+  }
+  return `<line x1="11" y1="8" x2="11" y2="86" stroke="${INK}" stroke-width="4" stroke-linecap="round"/><circle cx="11" cy="7" r="3.6" fill="${YEL}" stroke="${INK}" stroke-width="2"/>`+
+    stripe(0,YEL)+stripe(1,BLUE)+stripe(2,RED)+st;
+}
+const maraca=(hx,hy,bx,by,fill,dots)=>`<line x1="${hx}" y1="${hy}" x2="${bx}" y2="${by}" stroke="${INK}" stroke-width="7" stroke-linecap="round"/><line x1="${hx}" y1="${hy}" x2="${bx}" y2="${by}" stroke="#d9a066" stroke-width="3.4" stroke-linecap="round"/>
+  <ellipse cx="${hx}" cy="${hy-6}" rx="10" ry="12" fill="${fill}" stroke="${INK}" stroke-width="2.6" transform="rotate(${hx<50?-18:18} ${hx} ${hy})"/>
+  <g fill="${dots}" stroke="${INK}" stroke-width=".8"><circle cx="${hx-3}" cy="${hy-9}" r="1.8"/><circle cx="${hx+3}" cy="${hy-4}" r="1.8"/><circle cx="${hx-2}" cy="${hy-1}" r="1.6"/></g>`;
 grid.insertAdjacentHTML("beforeend",
- `<div class="card" style="--c:${c8};--r:1.6deg"><div class="tape"></div><div class="num" style="color:#1d1d22">8</div>
-  <svg viewBox="0 0 100 130"><ellipse cx="50" cy="66" rx="48" ry="56" fill="${c8}" opacity=".2"/>
-   <g fill="none" stroke="${INK}" stroke-width="7" stroke-linecap="round"><path d="M20 60a32 32 0 0 1 56-20"/><path d="M80 70a32 32 0 0 1-56 20"/></g>
-   <path d="M84 20l1 26-24-9z" fill="${c8}" stroke="${INK}" stroke-width="3" stroke-linejoin="round"/><path d="M16 110l-1-26 24 9z" fill="${c8}" stroke="${INK}" stroke-width="3" stroke-linejoin="round"/>
-   <path d="M50 50l4 9 9 4-9 4-4 9-4-9-9-4 9-4z" fill="${col[0]}" stroke="${INK}" stroke-width="2"/></svg>
-  <div class="name" style="--c:${c8}">LOOP IT</div><div class="cnt">back to step 1!</div></div>`);
-const beat=document.getElementById("beat");
-for(let i=0;i<8;i++)beat.insertAdjacentHTML("beforeend",`<i style="background:${col[i%8]};transform:scale(${i%2?.8:1})"></i>`);
+ `<div class="card" style="--c:${BLUE};--r:1.6deg"><div class="tape"></div>
+  <svg viewBox="-4 0 108 140"><ellipse cx="50" cy="72" rx="52" ry="66" fill="${YEL}" opacity=".16"/>
+   <path d="M4 132L11 96L17 92H40L46 100L52 132Z" fill="#cfe5c8" stroke="${INK}" stroke-width="2.4" stroke-linejoin="round"/>
+   <path d="M50 132L58 106L64 102H86L93 110L100 132Z" fill="#b9d8b2" stroke="${INK}" stroke-width="2.4" stroke-linejoin="round"/>
+   <path d="M20 100v14M26 98v18M70 112v12M78 110v14" stroke="#6aa06a" stroke-width="1.4" stroke-linecap="round"/>
+   ${flag()}
+   ${maraca(32,108,48,134,RED,YEL)}${maraca(68,108,52,134,YEL,BLUE)}
+   <g transform="translate(88 18)"><circle r="7" fill="${YEL}" stroke="${INK}" stroke-width="2"/><path d="M0 -12v-4M0 12v4M-12 0h-4M12 0h4M-9 -9l-3 -3M9 -9l3 -3M-9 9l-3 3M9 9l3 3" stroke="${INK}" stroke-width="1.8" stroke-linecap="round"/></g>
+  </svg>
+  <div class="name">VENEZUELA</div><div class="cnt">&iexcl;qu&eacute; ch&eacute;vere!</div></div>`);
+
+// row of 8 stars along a gentle arc, like the stars on the flag
+(function(){
+  let s="";
+  for(let i=0;i<8;i++){
+    const x=60+i*91.4,y=58-Math.cos((i-3.5)/3.5*1.2)*26+26;
+    s+=`<path transform="translate(${x} ${y}) scale(${i%2?3.4:3.9}) rotate(${(i%3-1)*6})" d="M0 -7l2 5 5 2-5 2-2 5-2-5-5-2 5-2z" fill="${i%2?YEL:"#fff"}" stroke="${INK}" stroke-width="1.1" stroke-linejoin="round"/>`;
+  }
+  document.getElementById("stars").innerHTML=s;
+})();
 </script></body></html>
