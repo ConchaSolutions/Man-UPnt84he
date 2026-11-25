@@ -1,197 +1,184 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8">
-<title>Dance It Out - Step by Step</title>
+<title>Dance Moves - Step by Step</title>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <style>
-  @font-face{font-family:"Bang";src:url("fonts/Bangers.ttf")}
-  @font-face{font-family:"Hand";src:url("fonts/Patrick_Hand.ttf")}
-  :root{--ink:#14122b;--yellow:#ffcc00;--blue:#1d4fb8;--red:#cf142b;}
+  @font-face{font-family:"Slab";src:url("fonts/Alfa_Slab_One.ttf")}
+  @font-face{font-family:"Didot";src:url("fonts/Abril_Fatface.ttf")}
+  :root{--navy:#23455e;--sage:#7f9669;--pale:#dde5df;--paleD:#b0beb6;}
   html,body{margin:0;background:#fff}
-  #art{width:1500px;height:2000px;position:relative;overflow:hidden;color:var(--ink);background:#fff;font-family:"Hand",cursive}
-  .frame{position:absolute;left:22px;top:22px;width:1456px;height:1956px;border:4px solid var(--ink);box-sizing:border-box}
-  .title{position:absolute;left:0;right:0;top:50px;text-align:center}
-  h1{margin:0;display:inline-block;font:400 168px/1 "Bang",cursive;letter-spacing:5px;transform:skewX(-8deg);
-     background:linear-gradient(180deg,#ffcc00 0 34%,#1d4fb8 34% 67%,#cf142b 67% 100%);-webkit-background-clip:text;background-clip:text;color:transparent;
-     -webkit-text-stroke:10px var(--ink);paint-order:stroke fill;filter:drop-shadow(7px 7px 0 var(--ink))}
-  .sub{position:absolute;left:0;right:0;top:238px;text-align:center;font:400 44px/1 "Bang",cursive;letter-spacing:6px}
-  .sub b{color:var(--red);font-weight:400;margin:0 14px}
-  .deco{position:absolute;top:66px}
-  .grid{position:absolute;left:62px;top:316px;width:1376px;display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-  .card{position:relative;height:536px;border:4px solid var(--ink);box-sizing:border-box;background:transparent}
-  .card svg.fig{position:absolute;left:0;top:14px;width:100%;height:376px;overflow:visible}
-  .badge{position:absolute;left:-4px;top:-4px;width:76px;height:76px;background:var(--ink);color:#fff;font:400 58px/76px "Bang",cursive;text-align:center;z-index:3}
-  .badge.y{color:var(--yellow)}
-  .txt{position:absolute;left:18px;right:18px;bottom:14px;text-align:center}
-  .txt b{display:block;font:400 42px/1.05 "Bang",cursive;letter-spacing:2px;white-space:nowrap}
-  .txt b em{font-style:normal;color:var(--red)}
-  .txt i{display:block;font:400 27px/1.15 "Hand",cursive;font-style:normal;margin-top:6px;min-height:62px}
-  .last{display:flex;flex-direction:column;align-items:center;justify-content:center}
-  .last .tag{font:400 66px/1.05 "Bang",cursive;letter-spacing:4px;text-align:center;margin-top:8px;-webkit-text-stroke:7px var(--ink);paint-order:stroke fill;transform:skewX(-8deg)}
-  .last .tag span{display:block}
-  .last .tag .r{color:var(--red)} .last .tag .b{color:#3b7bff} .last .tag .y{color:var(--yellow)}
+  #art{width:1500px;height:2850px;position:relative;overflow:hidden;background:#fff;color:var(--navy)}
+  .rule{position:absolute;left:70px;right:70px;height:12px;border-top:6px solid var(--paleD);border-bottom:2px solid var(--paleD);box-sizing:border-box}
+  .title{position:absolute;left:0;right:0;top:78px;text-align:center}
+  .t1{font:400 112px/1 "Slab",serif;letter-spacing:12px;color:var(--sage)}
+  .t2{font:400 168px/1 "Slab",serif;letter-spacing:4px;color:var(--navy);margin-top:6px;white-space:nowrap}
+  .sec{position:absolute;left:70px;right:70px}
+  .row{display:flex;height:620px}
+  .frame{position:relative;flex:1}
+  .num{position:absolute;left:0px;bottom:58px;font:400 500px/0.8 "Didot",serif;color:var(--pale);-webkit-text-stroke:3px var(--paleD);
+       text-shadow:-3px 3px 0 var(--paleD),-6px 6px 0 var(--paleD),-9px 9px 0 var(--paleD),-12px 12px 0 #c6d2cb;z-index:0}
+  .frame svg{position:absolute;left:0;top:0;width:100%;height:578px;z-index:1;overflow:visible}
+  .cap{position:absolute;left:0;right:0;bottom:2px;text-align:center;font:400 25px/1 "Slab",serif;letter-spacing:2px;color:var(--navy);z-index:2;white-space:nowrap}
+  .name{height:112px;margin-top:6px;text-align:center;font:400 104px/112px "Slab",serif;letter-spacing:6px;color:var(--pale);-webkit-text-stroke:3px var(--paleD);
+        text-shadow:-3px 3px 0 var(--paleD),-5px 5px 0 var(--paleD),-7px 7px 0 #c6d2cb;white-space:nowrap}
+  .foot{position:absolute;left:0;right:0;bottom:52px;text-align:center;font:400 26px/1 "Slab",serif;letter-spacing:6px;color:var(--paleD)}
 </style></head>
 <body>
 <svg width="0" height="0" style="position:absolute"><defs>
-  <marker id="ah" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="4.6" markerHeight="4.6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10Z" fill="#1d4fb8" stroke="#1d4fb8" stroke-width="1" stroke-linejoin="round"/></marker>
+  <marker id="ar" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="4" markerHeight="4" orient="auto-start-reverse"><path d="M0 0L10 5L0 10L3 5Z" fill="#23455e"/></marker>
 </defs></svg>
 <div id="art">
-  <div class="frame"></div>
-  <svg class="deco" style="left:64px" width="190" height="190" viewBox="0 0 190 190" id="flagdeco"></svg>
-  <svg class="deco" style="right:64px" width="190" height="190" viewBox="0 0 190 190" id="starsdeco"></svg>
-  <div class="title"><h1>DANCE IT OUT</h1></div>
-  <div class="sub">8 STEPS<b>&#9733;</b>1 BEAT<b>&#9733;</b>SABOR VENEZOLANO</div>
-  <div class="grid" id="grid"></div>
+  <div class="rule" style="top:44px"></div>
+  <div class="title"><div class="t1">TOCO TOCO</div><div class="t2">DANCE MOVES</div></div>
+  <div class="rule" style="top:392px"></div>
+  <div id="secs"></div>
+  <div class="foot">LEARN IT &middot; REPEAT ON THE BEAT</div>
 </div>
 <script>
-const INK="#14122b", RED="#cf142b", BLUE="#1d4fb8", YEL="#ffcc00";
-const SKIN="#ffe6d0", SKINSH="#f1bd9a", HAIR="#1d1b34", HAIRHL="#8896dd";
-const JEANS="#5a8fe0", JEANSSH="#3f6cc0", JEANSL="#b4d2fb", TOPSH="#e0a800";
-// Sequence given by the client. "Right" = the dancer's own right (the viewer's left).
-const std={rK:[42,114],rF:[39,140],lK:[58,114],lF:[61,140]};
-const poses=[
- {n:"HANDS ON <em>HEAD</em>",cnt:"Lift both hands and rest them on the sides of your head.",sway:8,front:true,
-  rE:[13,36],rH:[28,15],lE:[87,36],lH:[72,15],...std,
-  A:["M6 72Q-6 44 14 22","M94 72Q106 44 86 22"]},
- {n:"HANDS ON <em>SHOULDERS</em>",cnt:"Slide both hands down onto your shoulders.",sway:-8,
-  rE:[20,66],rH:[34,47],lE:[80,66],lH:[66,47],...std,
-  A:["M22 14Q10 30 24 42","M78 14Q90 30 76 42"]},
- {n:"HANDS ON <em>HIPS</em>",cnt:"Drop both hands down to your hips.",sway:12,
-  rE:[20,66],rH:[41,80],lE:[80,66],lH:[59,80],rK:[40,114],rF:[34,140],lK:[60,114],lF:[66,140],
-  A:["M10 50Q-2 70 30 82","M90 50Q102 70 70 82"]},
- {n:"CHEST <em>TAP</em>",cnt:"Pat the center of your chest with both hands.",sway:-10,
-  rE:[24,70],rH:[40,60],lE:[76,70],lH:[60,60],...std,
-  A:["M12 84Q8 64 30 60","M88 84Q92 64 70 60"]},
- {n:"RIGHT ARM <em>OUT</em>",cnt:"Stretch your right arm out to the side. Touch its forearm with your left hand.",sway:20,
-  rE:[12,50],rH:[-12,50],lE:[38,67],lH:[14,53],...std,
-  A:["M24 36L-6 36","M52 90Q20 90 12 62"],circ:[[14,53]]},
- {n:"SLIDE TO THE <em>SHOULDER</em>",cnt:"Slide your left hand up your right arm to the right shoulder.",sway:16,
-  rE:[12,50],rH:[-12,50],lE:[52,70],lH:[35,49],...std,
-  A:["M-8 38L26 38"],circ:[[35,49]]},
- {n:"HEART <em>TAP</em>",cnt:"Reach your left hand out, then tap your heart.",sway:14,
-  rE:[12,50],rH:[-12,50],lE:[72,70],lH:[56,58],...std,ghost:[92,40],
-  A:["M90 49Q92 70 64 62"],circ:[[56,58]]},
- {n:"<em>CLAP</em>",cnt:"Bring both hands together in the center and clap.",sway:-6,
-  rE:[32,68],rH:[49,56],lE:[68,68],lH:[51,56],rK:[43,114],rF:[41,140],lK:[57,114],lF:[59,140],
-  A:["M22 56L40 56","M78 56L60 56"],burst:[50,56]}
-];
-const L=(a,b,w,c,x="")=>`<line x1="${a[0]}" y1="${a[1]}" x2="${b[0]}" y2="${b[1]}" stroke="${c}" stroke-width="${w}" stroke-linecap="round" ${x}/>`;
-// outlined limb with simple cel shading (shadow on the lower/right side, gloss on the other)
-function tube(pts,ws,fill,shade,gloss){
-  let o="",f="",sh="",gl="";
-  for(let i=0;i<pts.length-1;i++){
-    const a=pts[i],b=pts[i+1],dx=b[0]-a[0],dy=b[1]-a[1],m=Math.hypot(dx,dy)||1;
-    let nx=-dy/m,ny=dx/m;if(nx*0.6+ny*0.8<0){nx=-nx;ny=-ny;}
-    o+=L(a,b,ws[i]+4,INK);f+=L(a,b,ws[i],fill);
-    const k=ws[i]*.27,t=[nx*k,ny*k],sa=[a[0]+t[0]+dx*.04,a[1]+t[1]+dy*.04],sb=[b[0]+t[0]-dx*.04,b[1]+t[1]-dy*.04];
-    sh+=L(sa,sb,ws[i]*.4,shade);
-    if(gloss){const g=[-nx*ws[i]*.22,-ny*ws[i]*.22];gl+=L([a[0]+g[0]+dx*.18,a[1]+g[1]+dy*.18],[b[0]+g[0]-dx*.18,b[1]+g[1]-dy*.18],1.5,gloss,'opacity=".75"');}
-  }
-  return o+f+sh+gl;
+// ---------- palette ----------
+const C={navy:"#23455e",navyL:"#3f6786",navyD:"#142d3f",sage:"#7f9669",sageL:"#9bb084",sageD:"#5f7650",
+  skin:"#cf9264",skinL:"#e6b78c",skinD:"#a2663f",hair:"#162a3b",hairL:"#2a4a63",lip:"#9c4a3e",
+  shoe:"#f1f3ec",shoeD:"#c5cbbf",ground:"#aebca0"};
+// ---------- vector helpers ----------
+const f1=n=>Math.round(n*100)/100;
+const add=(a,b)=>[a[0]+b[0],a[1]+b[1]], sub=(a,b)=>[a[0]-b[0],a[1]-b[1]], mul=(a,k)=>[a[0]*k,a[1]*k];
+const len=a=>Math.hypot(a[0],a[1]), norm=a=>{const l=len(a)||1;return [a[0]/l,a[1]/l]};
+const lerp=(a,b,t)=>[a[0]+(b[0]-a[0])*t,a[1]+(b[1]-a[1])*t];
+const rot=(p,c,deg)=>{const r=deg*Math.PI/180,s=Math.sin(r),co=Math.cos(r),x=p[0]-c[0],y=p[1]-c[1];return [c[0]+x*co-y*s,c[1]+x*s+y*co]};
+const P=pts=>pts.map(p=>f1(p[0])+","+f1(p[1])).join(" ");
+const poly=(pts,fill)=>`<polygon points="${P(pts)}" fill="${fill}"/>`;
+const circ=(c,r,fill)=>`<circle cx="${f1(c[0])}" cy="${f1(c[1])}" r="${f1(r)}" fill="${fill}"/>`;
+function seg(a,b,w0,w1,fill){ // tapered capsule
+  const d=norm(sub(b,a)),n=[-d[1],d[0]];
+  return poly([add(a,mul(n,w0/2)),add(b,mul(n,w1/2)),sub(b,mul(n,w1/2)),sub(a,mul(n,w0/2))],fill)+circ(a,w0/2,fill)+circ(b,w1/2,fill);
 }
+// limb with flat 3-tone shading: light strip up/left, shadow strip down/right
+function strip(a,b,w0,w1,off,wd,fill){ // flat faceted strip, trimmed so it never reaches the joints
+  const d=norm(sub(b,a)),n=[-d[1],d[0]],t0=-.3,t1=1.3;
+  const A=lerp(a,b,t0),B=lerp(a,b,t1),wa=(w0+(w1-w0)*t0),wb=(w0+(w1-w0)*t1);
+  const sg=off<0?-1:1,cA=add(A,mul(n,sg*Math.abs(off)*wa)),cB=add(B,mul(n,sg*Math.abs(off)*wb));
+  return poly([add(cA,mul(n,wd*wa/2)),add(cB,mul(n,wd*wb/2)),sub(cB,mul(n,wd*wb/2)),sub(cA,mul(n,wd*wa/2))],fill);
+}
+function limb(a,b,w0,w1,base,hi,sh){
+  const d=norm(sub(b,a));let n=[-d[1],d[0]];const flip=(n[0]*.6+n[1]*.8>0)?-1:1;
+  const id="L"+(clipN++),q=[add(a,mul(n,w0/2)),add(b,mul(n,w1/2)),sub(b,mul(n,w1/2)),sub(a,mul(n,w0/2))];
+  const clip=`<clipPath id="${id}"><polygon points="${P(q)}"/><circle cx="${f1(a[0])}" cy="${f1(a[1])}" r="${f1(w0/2)}"/><circle cx="${f1(b[0])}" cy="${f1(b[1])}" r="${f1(w1/2)}"/></clipPath>`;
+  return seg(a,b,w0,w1,base)+clip+`<g clip-path="url(#${id})">${strip(a,b,w0,w1,.27*flip,.26,hi)}${strip(a,b,w0,w1,-.30*flip,.30,sh)}</g>`;
+}
+// clip a set of shapes to a polygon (used for garment shading)
+let clipN=0;
+function clipped(pts,inner){const id="k"+(clipN++);return `<clipPath id="${id}"><polygon points="${P(pts)}"/></clipPath><g clip-path="url(#${id})">${inner}</g>`;}
+
+// ---------- parts ----------
 function hand(e,h){
-  const dx=h[0]-e[0],dy=h[1]-e[1],m=Math.hypot(dx,dy)||1,ux=dx/m,uy=dy/m;let s="";
-  [[-34,.92],[0,1.12],[34,.92],[-82,.64]].forEach(([a,len])=>{
-    const r=a*Math.PI/180,c=Math.cos(r),sn=Math.sin(r),vx=ux*c-uy*sn,vy=ux*sn+uy*c;
-    const p0=[h[0]+vx*2.6,h[1]+vy*2.6],p1=[h[0]+vx*(2.6+6.6*len),h[1]+vy*(2.6+6.6*len)];
-    s+=L(p0,p1,5.2,INK)+L(p0,p1,3,SKIN);
-  });
-  return s+`<circle cx="${h[0]}" cy="${h[1]}" r="4.8" fill="${SKIN}" stroke="${INK}" stroke-width="2.2"/>`+
-    `<path d="M${h[0]-2.6} ${h[1]+2.2}Q${h[0]} ${h[1]+4} ${h[0]+2.6} ${h[1]+2.2}" stroke="${SKINSH}" stroke-width="1.4" fill="none" stroke-linecap="round"/>`;
-}
-function eye(cx,cy,flip){
-  const s=flip?-1:1,k=.86;
-  return `<ellipse cx="${cx}" cy="${cy}" rx="${6.4*k}" ry="${8*k}" fill="#fff" stroke="${INK}" stroke-width=".9"/>
-   <ellipse cx="${cx}" cy="${cy+.4}" rx="${5.1*k}" ry="${7.1*k}" fill="#2a1712"/>
-   <ellipse cx="${cx}" cy="${cy+3}" rx="${4.3*k}" ry="${3.5*k}" fill="#a55a2c"/>
-   <ellipse cx="${cx}" cy="${cy+.2}" rx="${2.3*k}" ry="${3.5*k}" fill="#0b0707"/>
-   <circle cx="${cx-1.8*s}" cy="${cy-2.6}" r="2.1" fill="#fff"/><circle cx="${cx+2*s}" cy="${cy+3.3}" r="1" fill="#fff"/>
-   <path d="M${cx-7*k} ${cy-2.4}Q${cx-3.2*k} ${cy-10*k} ${cx+2.4*k} ${cy-8.8*k}Q${cx+6.4*k} ${cy-7.8*k} ${cx+7.4*k} ${cy-1.6}" stroke="${INK}" stroke-width="2.8" fill="none" stroke-linecap="round"/>
-   <path d="M${cx+7*k*s} ${cy-2.6}l${3.2*s} -2.4M${cx+6.4*k*s} ${cy-5.2}l${2.8*s} -2.8" stroke="${INK}" stroke-width="1.5" stroke-linecap="round"/>`;
-}
-function figure(p){
-  const rS=[39,50],lS=[61,50],hipR=[44,88],hipL=[56,88];
-  const hairBack=`<path d="M30 24Q27 1 50 1Q73 1 70 24Q77 46 71 68Q62 66 61 53L39 53Q38 66 29 68Q23 46 30 24Z" fill="${HAIR}" stroke="${INK}" stroke-width="2.6" stroke-linejoin="round"/>
-    <path d="M32 30Q31 46 34 60M68 30Q69 46 66 60" stroke="${HAIRHL}" stroke-width="1.2" fill="none" stroke-linecap="round" opacity=".8"/>`;
-  const pony=`<g transform="rotate(${p.sway} 60 9)"><path d="M58 6Q92 -6 96 28Q98 54 83 70Q89 44 79 30Q70 19 58 17Z" fill="${HAIR}" stroke="${INK}" stroke-width="2.6" stroke-linejoin="round"/>
-    <path d="M70 9Q90 8 92 30M80 28Q90 42 85 58" stroke="${HAIRHL}" stroke-width="1.7" fill="none" stroke-linecap="round"/>
-    <g transform="translate(60 9) rotate(-30)"><rect x="-6.4" y="-5" width="12.8" height="10" rx="3.6" fill="${YEL}"/><rect x="-6.4" y="-1.7" width="12.8" height="3.3" fill="${BLUE}"/><rect x="-6.4" y="1.7" width="12.8" height="3.3" fill="${RED}"/><rect x="-6.4" y="-5" width="12.8" height="10" rx="3.6" fill="none" stroke="${INK}" stroke-width="1.9"/></g></g>`;
-  const legs=tube([hipR,p.rK,p.rF],[15.6,13],JEANS,JEANSSH,JEANSL)+tube([hipL,p.lK,p.lF],[15.6,13],JEANS,JEANSSH,JEANSL);
-  const folds=[p.rK,p.lK].map(k=>`<path d="M${k[0]-4.6} ${k[1]-3.6}q4.6 2.4 9.2 0M${k[0]-4} ${k[1]+1.4}q4 2 8 0" stroke="${JEANSSH}" stroke-width="1" fill="none" stroke-linecap="round"/>`).join("");
-  const seams=[[hipR,p.rK],[hipL,p.lK]].map(([a,b])=>L(a,b,.8,JEANSSH,'stroke-dasharray="1.6 1.4"')).join("");
-  const cuffs=[p.rF,p.lF].map(f=>`<path d="M${f[0]-6.4} ${f[1]-5}h12.8" stroke="${INK}" stroke-width="1.8"/>`).join("");
-  const shoes=[[p.rF,-2.6],[p.lF,2.6]].map(([f,dx])=>`<path d="M${f[0]-7.4+dx} ${f[1]-1}Q${f[0]+dx} ${f[1]-5.4} ${f[0]+7.4+dx} ${f[1]-1}Q${f[0]+11+dx} ${f[1]+3} ${f[0]+10.4+dx} ${f[1]+8.6}H${f[0]-10.4+dx}Q${f[0]-11+dx} ${f[1]+2.6} ${f[0]-7.4+dx} ${f[1]-1}Z" fill="${RED}" stroke="${INK}" stroke-width="2.4" stroke-linejoin="round"/>
-    <path d="M${f[0]-10.6+dx} ${f[1]+6}H${f[0]+10.8+dx}" stroke="#fff" stroke-width="2.8"/><path d="M${f[0]-3+dx} ${f[1]-3.4}l3.4 2.2M${f[0]+1+dx} ${f[1]-4}l3.4 2.2" stroke="#fff" stroke-width="1.3" stroke-linecap="round"/><path d="M${f[0]-8+dx} ${f[1]+1}Q${f[0]-3+dx} ${f[1]-2} ${f[0]+dx} ${f[1]-3}" stroke="#a30f21" stroke-width="1.2" fill="none"/>`).join("");
-  const shadow=`<ellipse cx="50" cy="149.4" rx="30" ry="3.4" fill="${INK}" opacity=".12"/>`;
-  const waist=`<path d="M40 80H60L62.6 96H37.4Z" fill="${JEANS}" stroke="${INK}" stroke-width="2.4" stroke-linejoin="round"/>
-    <path d="M40.4 84.4H59.6" stroke="${INK}" stroke-width="1.5"/><circle cx="50" cy="84.4" r="1.9" fill="${YEL}" stroke="${INK}" stroke-width="1"/>
-    <path d="M50 86.4V96M43.4 86.6l-1.6 6.4M56.6 86.6l1.6 6.4" stroke="${JEANSSH}" stroke-width="1" stroke-linecap="round"/>
-    <path d="M41 81.6V84.4M46 81.6V84.4M54 81.6V84.4M59 81.6V84.4" stroke="${INK}" stroke-width=".9"/>`;
-  const mid=`<path d="M40.6 70Q50 74.4 59.4 70L60 82H40Z" fill="${SKIN}" stroke="${INK}" stroke-width="2.2" stroke-linejoin="round"/><path d="M52.6 72Q56.6 76 56 81" stroke="${SKINSH}" stroke-width="2" fill="none" stroke-linecap="round"/><circle cx="50" cy="76" r=".9" fill="${INK}"/>`;
-  const neck=`<path d="M45.4 37H54.6L55.6 51Q50 55 44.4 51Z" fill="${SKIN}" stroke="${INK}" stroke-width="2.2" stroke-linejoin="round"/><path d="M50 41Q54 44 55 50" stroke="${SKINSH}" stroke-width="2" fill="none"/>`;
-  const top=`<path d="M38.4 48Q50 56 61.6 48L60.2 72Q50 76 39.8 72Z" fill="${YEL}" stroke="${INK}" stroke-width="2.4" stroke-linejoin="round"/>
-    <path d="M52 64Q58 66 60 71L58 71.6Q54 71 52 66Z" fill="${TOPSH}" opacity=".8"/>
-    <path d="M44 52Q50 57 56 52M40.6 69.4Q50 73.4 59.4 69.4" stroke="${INK}" stroke-width="1" fill="none" stroke-linecap="round"/>
-    <path d="M40 71Q50 75 60 71" stroke="${BLUE}" stroke-width="1.8" fill="none"/>
-    <circle cx="50" cy="60.4" r="2.6" fill="none" stroke="${INK}" stroke-width="1.3"/><path d="M44.4 52L43.4 42M55.6 52L56.6 42" stroke="${INK}" stroke-width="1.7" stroke-linecap="round"/>`;
-  const arms=tube([rS,p.rE,p.rH],[7.8,6.6],SKIN,SKINSH,null)+tube([lS,p.lE,p.lH],[7.8,6.6],SKIN,SKINSH,null);
-  const bracelets=[[p.rE,p.rH],[p.lE,p.lH]].map(([e,h])=>{const dx=h[0]-e[0],dy=h[1]-e[1],m=Math.hypot(dx,dy)||1;const c=[h[0]-dx/m*5.2,h[1]-dy/m*5.2];return `<circle cx="${c[0]}" cy="${c[1]}" r="3.9" fill="none" stroke="${BLUE}" stroke-width="2"/>`}).join("");
-  const hands=hand(p.rE,p.rH)+hand(p.lE,p.lH);
-  const face=`<path d="M33 22Q33 6 50 5Q67 6 67 22Q67 33 60 39Q55 43 50 43Q45 43 40 39Q33 33 33 22Z" fill="${SKIN}" stroke="${INK}" stroke-width="2.7" stroke-linejoin="round"/>`;
-  const feat=`${eye(42,24,false)}${eye(58,24,true)}
-   <path d="M50 30.6l-1.1 1.8h2.1" stroke="${INK}" stroke-width="1" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-   <path d="M44.4 34.4Q50 41 55.6 34.4Q50 36 44.4 34.4Z" fill="#b01e2e" stroke="${INK}" stroke-width="1.6" stroke-linejoin="round"/><ellipse cx="50" cy="38" rx="2.3" ry="1.1" fill="#ff8aa0"/>
-   <ellipse cx="37.4" cy="31" rx="3.6" ry="2" fill="#ff7f9b" opacity=".6"/><ellipse cx="62.6" cy="31" rx="3.6" ry="2" fill="#ff7f9b" opacity=".6"/>`;
-  const bangs=`<path d="M32 23Q30 3 50 3Q70 3 68 23Q65 13 58 12Q62 20 55 22Q55 12 50 11Q47 21 42 22Q44 13 38 12Q33 14 32 23Z" fill="${HAIR}" stroke="${INK}" stroke-width="2.3" stroke-linejoin="round"/>
-   <path d="M33.4 25Q32.4 36 36.4 46Q40 38 38.4 27Z" fill="${HAIR}" stroke="${INK}" stroke-width="1.9" stroke-linejoin="round"/><path d="M66.6 25Q67.6 36 63.6 46Q60 38 61.6 27Z" fill="${HAIR}" stroke="${INK}" stroke-width="1.9" stroke-linejoin="round"/>
-   <path d="M38 8Q44 5 50 6.6M55 6.6Q62 5 66 10" stroke="${HAIRHL}" stroke-width="1.8" fill="none" stroke-linecap="round"/>
-   <circle cx="33.6" cy="29" r="1.8" fill="${YEL}" stroke="${INK}" stroke-width="1.1"/><circle cx="66.4" cy="29" r="1.8" fill="${YEL}" stroke="${INK}" stroke-width="1.1"/>`;
-  const rl=[["R",p.rF[0]-19],["L",p.lF[0]+19]].map(([t,x])=>`<circle cx="${x}" cy="143" r="5.6" fill="#fff" stroke="${INK}" stroke-width="1.3"/><text x="${x}" y="145.8" font-family="Bang" font-size="8" text-anchor="middle" fill="${INK}">${t}</text>`).join("");
-  const glow=(p.circ||[p.rH,p.lH]).map(([x,y])=>`<circle cx="${x}" cy="${y}" r="10.5" fill="${RED}" opacity=".2"/><circle cx="${x}" cy="${y}" r="10.5" fill="none" stroke="${RED}" stroke-width="1.1" stroke-dasharray="3 2.4" opacity=".7"/>`).join("");
-  const limbs=glow+arms+bracelets+hands;
-  return shadow+rl+hairBack+pony+legs+folds+seams+cuffs+shoes+waist+mid+neck+top+(p.front?"":limbs)+face+feat+bangs+(p.front?limbs:"");
-}
-// teaching overlays: red ring = target, blue arrow = direction of travel
-function overlay(p){
-  let s="";
-  const halo=d=>`<path d="${d}" fill="none" stroke="#fff" stroke-width="5.2" stroke-linecap="round"/>`;
-  (p.A||[]).forEach(d=>s+=halo(d)+`<path d="${d}" fill="none" stroke="${BLUE}" stroke-width="2.3" stroke-linecap="round" marker-end="url(#ah)"/>`);
-  if(p.ghost)s+=`<circle cx="${p.ghost[0]}" cy="${p.ghost[1]}" r="6.6" fill="none" stroke="${INK}" stroke-width="1.5" stroke-dasharray="2.6 2.6"/>`;
-  if(p.burst){const[x,y]=p.burst;s+=`<g stroke="${INK}" stroke-width="2" stroke-linecap="round"><path d="M${x} ${y-12}v-7M${x-9} ${y-8}l-5-5M${x+9} ${y-8}l5-5"/></g>`;}
+  const d=norm(sub(h,e));let n=[-d[1],d[0]];if((50-h[0])*n[0]<0)n=[-n[0],-n[1]];
+  const ang=Math.atan2(d[1],d[0])*180/Math.PI-90;
+  let s=`<ellipse cx="${f1(h[0])}" cy="${f1(h[1])}" rx="4.7" ry="6.2" transform="rotate(${f1(ang)} ${f1(h[0])} ${f1(h[1])})" fill="${C.skin}"/>`;
+  s+=seg(add(add(h,mul(n,3.4)),mul(d,-1.6)),add(add(h,mul(n,4.4)),mul(d,3.2)),3.2,2.6,C.skinL);
+  s+=`<line x1="${f1(h[0]+d[0]*3.4+n[0]*1.5)}" y1="${f1(h[1]+d[1]*3.4+n[1]*1.5)}" x2="${f1(h[0]+d[0]*6.2+n[0]*1.5)}" y2="${f1(h[1]+d[1]*6.2+n[1]*1.5)}" stroke="${C.skinD}" stroke-width=".7"/>`;
+  s+=`<line x1="${f1(h[0]+d[0]*3.4-n[0]*1.5)}" y1="${f1(h[1]+d[1]*3.4-n[1]*1.5)}" x2="${f1(h[0]+d[0]*6.2-n[0]*1.5)}" y2="${f1(h[1]+d[1]*6.2-n[1]*1.5)}" stroke="${C.skinD}" stroke-width=".7"/>`;
   return s;
 }
-const grid=document.getElementById("grid");
-poses.forEach((p,i)=>{
-  grid.insertAdjacentHTML("beforeend",
-   `<div class="card"><div class="badge${i%2?' y':''}">${i+1}</div>
-    <svg class="fig" viewBox="-22 -4 144 158">${figure(p)}${overlay(p)}</svg>
-    <div class="txt"><b>${p.n}</b><i>${p.cnt}</i></div></div>`);
-});
-
-// ---- Venezuelan elements ----
-const starPath="M0 -7l2 5 5 2-5 2-2 5-2-5-5-2 5-2z";
-function wavyFlag(x,y,w,h,amp){
-  const sh=h/3,N=24,f=(px)=>amp*Math.sin((px-x)/w*Math.PI*2.2);
-  const band=(k,fill)=>{let a="",b="";
-    for(let i=0;i<=N;i++){const px=x+w*i/N;a+=`${i?"L":"M"}${px.toFixed(1)} ${(y+k*sh+f(px)).toFixed(1)} `;}
-    for(let i=N;i>=0;i--){const px=x+w*i/N;b+=`L${px.toFixed(1)} ${(y+(k+1)*sh+f(px)).toFixed(1)} `;}
-    return `<path d="${a}${b}Z" fill="${fill}" stroke="${INK}" stroke-width="3.2" stroke-linejoin="round"/>`;};
-  let st="";
-  for(let i=0;i<8;i++){const t=(i-3.5)/3.5,px=x+w/2+t*w*.28,py=y+sh*1.5+sh*.18-Math.cos(t*1.15)*sh*.2+f(px);
-    st+=`<path transform="translate(${px.toFixed(1)} ${py.toFixed(1)}) scale(${(w/165).toFixed(2)})" d="${starPath}" fill="#fff" stroke="${INK}" stroke-width="1.2"/>`;}
-  return band(0,YEL)+band(1,BLUE)+band(2,RED)+st;
+function shoe(a,d){ // d: toe direction (-1 left, +1 right)
+  const X=(dx)=>a[0]+d*dx;
+  const body=[[X(-6.5),a[1]-1],[X(5.5),a[1]-1],[X(12),a[1]+7],[X(14.5),a[1]+10],[X(14.5),a[1]+12.5],[X(-7.5),a[1]+12.5],[X(-7.5),a[1]+3]];
+  return poly(body,C.shoe)+poly([[X(-7.5),a[1]+9.6],[X(14.5),a[1]+9.6],[X(14.5),a[1]+12.5],[X(-7.5),a[1]+12.5]],C.shoeD)+
+    poly([[X(-6),a[1]+3],[X(3),a[1]+1.4],[X(5),a[1]+6.4],[X(-6.5),a[1]+8]],C.sage)+
+    poly([[X(5.5),a[1]-1],[X(6.5),a[1]+.4],[X(12),a[1]+7],[X(9),a[1]+3]],C.shoeD);
 }
-document.getElementById("flagdeco").innerHTML=
-  `<line x1="14" y1="20" x2="14" y2="178" stroke="${INK}" stroke-width="6" stroke-linecap="round"/><circle cx="14" cy="18" r="7" fill="${YEL}" stroke="${INK}" stroke-width="3"/>`+wavyFlag(20,30,158,106,6);
-(function(){
+function headParts(hx,hy,tilt){
+  const R=(x,y)=>rot([hx+x,hy+y],[hx,hy],tilt);
+  const hairBack=poly([[-11,-8],[-8.5,-15],[0,-17.5],[9,-15.5],[12,-7],[13.5,10],[15,26],[9,33],[6,21],[-6,21],[-9.5,34],[-15.5,26],[-13.5,8]].map(p=>R(p[0],p[1])),C.hair)+
+    poly([[-8.5,-15],[0,-17.5],[3.5,-10],[-6,-6]].map(p=>R(p[0],p[1])),C.hairL)+
+    poly([[10.5,-4],[13.5,10],[15,26],[11.5,12]].map(p=>R(p[0],p[1])),C.hairL);
+  const face=poly([[0,-12.5],[7.8,-9.6],[9.9,-1.5],[7.4,7.8],[3.2,12.6],[-3.2,12.6],[-7.4,7.8],[-9.9,-1.5],[-7.8,-9.6]].map(p=>R(p[0],p[1])),C.skin)+
+    poly([[2.2,-12.4],[7.8,-9.6],[9.9,-1.5],[7.4,7.8],[3.2,12.6],[1.8,9],[3.8,0]].map(p=>R(p[0],p[1])),C.skinD)+
+    poly([[0,-1],[2.2,4.6],[-.7,4.8]].map(p=>R(p[0],p[1])),C.skinD)+
+    poly([[-3.4,7.6],[0,6.8],[3.4,7.6],[0,9.8]].map(p=>R(p[0],p[1])),C.lip);
+  const eyes=[[-4.2,-1.2],[4.2,-1.2]].map(([x,y])=>{const a=R(x-2,y),b=R(x,y-1.3),c=R(x+2,y);return `<path d="M${f1(a[0])} ${f1(a[1])}Q${f1(b[0])} ${f1(b[1])} ${f1(c[0])} ${f1(c[1])}" stroke="${C.navyD}" stroke-width="1.15" fill="none" stroke-linecap="round"/>`}).join("");
+  const brows=[[-6.6,-4.4,-1.8,-5.2],[1.8,-5.2,6.6,-4.4]].map(([x1,y1,x2,y2])=>{const a=R(x1,y1),b=R(x2,y2);return `<line x1="${f1(a[0])}" y1="${f1(a[1])}" x2="${f1(b[0])}" y2="${f1(b[1])}" stroke="${C.hair}" stroke-width=".9" stroke-linecap="round"/>`}).join("");
+  const hairFront=poly([[-10.2,-2],[-9,-10],[-4,-14.5],[4,-14.5],[9.4,-9.5],[10.2,-1.5],[6.5,-7.5],[1,-9],[-3,-7],[-7,-3]].map(p=>R(p[0],p[1])),C.hair)+
+    poly([[-4,-14.5],[4,-14.5],[1,-9.6],[-3.4,-8]].map(p=>R(p[0],p[1])),C.hairL);
+  return {hairBack,face:face+eyes+brows,hairFront};
+}
+// ---------- whole figure ----------
+function figure(p){
+  const sR=p.sR,sL=p.sL,hR=p.hR,hL=p.hL;
+  const sc=lerp(sR,sL,.5),hc=lerp(hR,hL,.5),dirS=norm(sub(sL,sR)),dirH=norm(sub(hL,hR));
+  const wc=lerp(sc,hc,.6),wR=sub(wc,mul(dirS,8.8)),wL=add(wc,mul(dirS,8.8));
+  const hRo=sub(hR,mul(dirH,3.5)),hLo=add(hL,mul(dirH,3.5));
+  const H=headParts(p.hd[0],p.hd[1],p.ht);
   let s="";
-  for(let i=0;i<8;i++){const t=(i-3.5)/3.5,x=95+t*82,y=130-Math.cos(t*1.15)*22;
-    s+=`<path transform="translate(${x.toFixed(1)} ${y.toFixed(1)}) scale(${i%2?2.2:2.7}) rotate(${(i%3-1)*8})" d="${starPath}" fill="${i%2?YEL:"#fff"}" stroke="${INK}" stroke-width="1.3" stroke-linejoin="round"/>`;}
-  document.getElementById("starsdeco").innerHTML=s;
-})();
-// 9th panel: flag + tagline
-grid.insertAdjacentHTML("beforeend",
- `<div class="card last"><svg width="330" height="250" viewBox="0 0 330 250" id="lastflag"></svg>
-   <div class="tag"><span class="r">REPEAT.</span><span class="b">SMILE.</span><span class="y">GLOW.</span></div></div>`);
-document.getElementById("lastflag").innerHTML=
-  `<line x1="22" y1="14" x2="22" y2="240" stroke="${INK}" stroke-width="7" stroke-linecap="round"/><circle cx="22" cy="12" r="8" fill="${YEL}" stroke="${INK}" stroke-width="3.2"/>`+wavyFlag(30,26,282,188,9);
+  s+=`<ellipse cx="50" cy="178" rx="44" ry="6.5" fill="${C.ground}"/>`;
+  s+=H.hairBack;
+  // legs (wide-leg jeans) + shoes
+  s+=limb(hR,p.rK,21,16.5,C.navy,C.navyL,C.navyD)+limb(p.rK,p.rA,16.5,17,C.navy,C.navyL,C.navyD);
+  s+=limb(hL,p.lK,21,16.5,C.navy,C.navyL,C.navyD)+limb(p.lK,p.lA,16.5,17,C.navy,C.navyL,C.navyD);
+    s+=shoe(p.rA,p.dR)+shoe(p.lA,p.dL);
+  // torso skin
+  const torso=[sR,sL,wL,hLo,hRo,wR];
+  s+=poly(torso,C.skin)+clipped(torso,poly([lerp(sR,sL,.66),sL,hLo,lerp(hRo,hLo,.66)],C.skinD)+poly([sR,lerp(sR,sL,.18),lerp(wR,wL,.18),wR],C.skinL));
+  // jeans waist
+  const jtR=lerp(wR,hRo,.52),jtL=lerp(wL,hLo,.52);
+  const jw=[jtR,jtL,hLo,hRo];
+  s+=poly(jw,C.navy)+clipped(jw,poly([lerp(jtR,jtL,.68),jtL,hLo,lerp(hRo,hLo,.68)],C.navyD)+poly([jtR,lerp(jtR,jtL,.2),lerp(hRo,hLo,.2),hRo],C.navyL))+
+    poly([jtR,jtL,add(jtL,[0,4.2]),add(jtR,[0,4.2])],C.navyD)+circ(lerp(jtR,jtL,.5),1.5,C.sage);
+  // crop top (halter)
+  const A=lerp(sR,sL,.2),B=lerp(sR,sL,.8),N=add(sc,[0,6.5]);
+  const tR=lerp(sR,wR,.8),tL=lerp(sL,wL,.8),top=[A,N,B,tL,tR];
+  s+=poly(top,C.sage)+clipped(top,poly([lerp(tR,tL,.66),tL,B,N],C.sageD)+poly([tR,lerp(tR,tL,.2),A,add(A,[-4,0])],C.sageL))+
+    poly([lerp(tR,tL,.38),lerp(tR,tL,.62),add(lerp(tR,tL,.5),[0,3.4])],C.sageD);
+  s+=seg(A,add(sc,[-3.4,-4.2]),3,2.6,C.sage)+seg(B,add(sc,[3.4,-4.2]),3,2.6,C.sageD);
+  // neck
+  s+=poly([[p.hd[0]-4.3,p.hd[1]+9],[p.hd[0]+4.3,p.hd[1]+9],add(sc,[4.8,1]),add(sc,[-4.8,1])],C.skin)+poly([[p.hd[0]+1,p.hd[1]+9],[p.hd[0]+4.3,p.hd[1]+9],add(sc,[4.8,1]),add(sc,[1.6,1])],C.skinD);
+  const arms=
+    limb(sR,p.rE,9.4,8.2,C.skin,C.skinL,C.skinD)+limb(p.rE,p.rH,8,6.4,C.skin,C.skinL,C.skinD)+hand(p.rE,p.rH)+
+    limb(sL,p.lE,9.4,8.2,C.skin,C.skinL,C.skinD)+limb(p.lE,p.lH,8,6.4,C.skin,C.skinL,C.skinD)+hand(p.lE,p.lH);
+  if(!p.front)s+=arms;
+  s+=H.face+H.hairFront;
+  if(p.front)s+=arms;
+  return s;
+}
+// ---------- poses ----------
+const stA={hR:[41.5,87.5],hL:[57,91],rK:[40,128],rA:[38.5,168],lK:[65,126],lA:[73,163],dR:-1,dL:1};
+const stB={hR:[43,91],hL:[58.5,87.5],rK:[35,126],rA:[27,163],lK:[60,128],lA:[61.5,168],dR:-1,dL:1};
+const stW={hR:[43,90],hL:[57,90],rK:[35,128],rA:[28,168],lK:[65,128],lA:[72,168],dR:-1,dL:1};
+const stC={hR:[44,89],hL:[56,89],rK:[42,128],rA:[40.5,168],lK:[58,128],lA:[59.5,168],dR:-1,dL:1};
+const sections=[
+ {name:"HANDS DOWN",frames:[
+  {cap:"HANDS ON HEAD",hd:[50,14],ht:-3,sR:[37.5,37],sL:[62.5,35.5],rE:[15,26],rH:[38,10],lE:[85,25],lH:[62,9],...stA,front:1,
+   A:["M8 68Q-8 40 13 17","M92 68Q108 40 87 17"]},
+  {cap:"HANDS ON SHOULDERS",hd:[50,15],ht:2,sR:[37,38],sL:[62.5,36],rE:[21,57],rH:[35.5,35],lE:[79,55],lH:[64.5,33],...stB,
+   A:["M20 8Q4 22 17 37","M80 6Q96 20 83 35"]},
+  {cap:"HANDS ON HIPS",hd:[50,15],ht:-2,sR:[37.5,36.5],sL:[62.5,36.5],rE:[26,58],rH:[41,80],lE:[74,58],lH:[59,80],...stW,
+   A:["M10 40Q-2 64 27 80","M90 40Q102 64 73 80"]}]},
+ {name:"TAP & SLIDE",frames:[
+  {cap:"CHEST TAP",hd:[50,15],ht:3,sR:[37.5,36.5],sL:[62.5,35.5],rE:[28,63],rH:[45,53],lE:[72,62],lH:[55,52],...stA,
+   A:["M14 82Q8 58 32 55","M86 82Q92 58 68 54"]},
+  {cap:"ARM OUT + TOUCH FOREARM",hd:[48,16],ht:-6,sR:[37,36],sL:[62,38],rE:[11,37],rH:[-15,35],lE:[40,54],lH:[17,40],...stB,hR:[43,91],hL:[58.5,87.5],
+   A:["M30 22L-10 24","M58 78Q26 80 19 50"]},
+  {cap:"SLIDE TO SHOULDER",hd:[48,16],ht:-4,sR:[37,36],sL:[62,38],rE:[11,37],rH:[-15,35],lE:[50,58],lH:[36,34],...stB,hR:[43,91],hL:[58.5,87.5],
+   A:["M-10 22L30 24"]}]},
+ {name:"REACH & CLAP",frames:[
+  {cap:"LEFT HAND REACHES OUT",hd:[50,15],ht:4,sR:[37,36],sL:[62.5,36],rE:[11,37],rH:[-15,35],lE:[89,34],lH:[115,28],...stA,
+   A:["M68 22L108 16"]},
+  {cap:"TAP YOUR HEART",hd:[50,15],ht:2,sR:[37,36],sL:[62.5,36],rE:[11,37],rH:[-15,35],lE:[74,58],lH:[56,51],...stB,
+   A:["M106 40Q98 70 62 58"]},
+  {cap:"CLAP IN THE CENTER",hd:[50,15],ht:0,sR:[37.5,36.5],sL:[62.5,36.5],rE:[27,54],rH:[47,42],lE:[73,54],lH:[53,42],...stC,
+   A:["M8 30Q10 44 38 44","M92 30Q90 44 62 44"]}]}
+];
+const secs=document.getElementById("secs");
+sections.forEach((sec,si)=>{
+  const top=430+si*770;
+  let frames="";
+  sec.frames.forEach((fr,i)=>{
+    const arrows=(fr.A||[]).map(d=>`<path d="${d}" fill="none" stroke="${C.navy}" stroke-width="1.7" stroke-dasharray=".2 3.3" stroke-linecap="round" marker-end="url(#ar)"/>`).join("");
+    frames+=`<div class="frame"><div class="num">${i+1}</div>
+      <svg viewBox="-18 -2 136 184" preserveAspectRatio="xMidYMax meet">${figure(fr)}${arrows}</svg>
+      <div class="cap">${fr.cap}</div></div>`;
+  });
+  secs.insertAdjacentHTML("beforeend",
+    `<div class="sec" style="top:${top}px"><div class="row">${frames}</div><div class="name">${sec.name}</div></div>
+     <div class="rule" style="top:${top+742}px"></div>`);
+});
 </script></body></html>
