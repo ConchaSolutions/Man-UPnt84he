@@ -1,187 +1,254 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8">
-<title>Dance It Out Infographic</title>
+<title>Dance It Out - Architectural Sheet</title>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <style>
-  @font-face{font-family:"Marker";src:url("fonts/Permanent_Marker.ttf")}
-  @font-face{font-family:"Hand";src:url("fonts/Patrick_Hand.ttf")}
-  @font-face{font-family:"Brush";src:url("fonts/Caveat_Brush.ttf")}
-  /* Venezuelan flag palette: yellow, blue, red */
-  :root{--ink:#1d1d22;--yellow:#ffcc00;--blue:#1d4fb8;--red:#cf142b;}
-  html,body{margin:0;background:#fff;}
-  #art{width:1500px;height:1800px;position:relative;overflow:hidden;color:var(--ink);background:#fff}
-  .paper{position:absolute;inset:0;pointer-events:none}
-  .paper svg{position:absolute;inset:0;width:100%;height:100%;opacity:.22;mix-blend-mode:multiply}
-  .wob{filter:url(#wob)} .wob2{filter:url(#wob2)}
-  h1{margin:0;text-align:center;font:400 168px/0.95 "Marker",cursive;padding-top:44px;transform:rotate(-3deg);letter-spacing:2px}
+  @font-face{font-family:"TechB";src:url("fonts/Barlow_Condensed_800.ttf")}
+  @font-face{font-family:"TechM";src:url("fonts/Barlow_Condensed_600.ttf")}
+  @font-face{font-family:"Arch";src:url("fonts/Architects_Daughter.ttf")}
+  /* Venezuelan flag palette (yellow / blue / red) on navy drafting ink */
+  :root{--ink:#16213e;--yellow:#ffcc00;--blue:#1d4fb8;--red:#cf142b;--grid:#dce7f6;}
+  html,body{margin:0;background:#fff}
+  #art{width:1500px;height:1800px;position:relative;overflow:hidden;color:var(--ink);background:#fff;font-family:"Arch",cursive}
+  .bg{position:absolute;inset:0;
+    background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px),
+                     linear-gradient(#c3d3ec 1px,transparent 1px),linear-gradient(90deg,#c3d3ec 1px,transparent 1px);
+    background-size:30px 30px,30px 30px,150px 150px,150px 150px}
+  .sheet{position:absolute;inset:0;width:1500px;height:1800px}
+  .head{position:absolute;left:0;right:0;top:70px;text-align:center}
+  h1{margin:0;font:400 158px/0.9 "TechB",sans-serif;letter-spacing:5px;display:inline-block}
   h1 .r{color:var(--red)} h1 .b{color:var(--blue)}
-  .under{display:block;margin:-4px auto 0;width:1100px;height:84px}
-  .sub{text-align:center;font:400 68px "Brush",cursive;margin-top:0;letter-spacing:2px}
-  .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:46px 34px;padding:50px 56px 0;position:relative}
-  .card{border:6px solid var(--ink);border-radius:255px 18px 225px 18px/18px 225px 18px 255px;position:relative;height:490px;transform:rotate(var(--r))}
-  .card .tape{position:absolute;top:-22px;right:34px;width:90px;height:34px;background:var(--c);opacity:.6;transform:rotate(7deg)}
-  .num{position:absolute;top:-38px;left:-26px;width:84px;height:84px;border-radius:50%;background:var(--c);border:6px solid var(--ink);
-       font:400 52px/76px "Marker",cursive;text-align:center;color:#fff;z-index:2}
-  .card svg{position:absolute;left:0;top:14px;width:100%;height:350px;overflow:visible}
-  .name{position:absolute;bottom:78px;width:100%;text-align:center;font:400 38px "Marker",cursive;color:var(--c);white-space:nowrap;
-        -webkit-text-stroke:1.2px var(--ink);paint-order:stroke fill}
-  .cnt{position:absolute;bottom:28px;width:100%;text-align:center;font:400 30px "Hand",cursive;color:var(--ink);white-space:nowrap}
-  .stars{display:block;margin:34px auto 0;width:760px;height:110px}
-  .foot{text-align:center;margin-top:0;font:400 104px "Brush",cursive;letter-spacing:3px;transform:rotate(-1.5deg)}
-  .foot span{color:var(--red)} .foot b{color:var(--blue);font-weight:400} .foot u{color:#d99a00;text-decoration:none} .foot i{color:var(--red);font-style:normal}
+  .strip{width:850px;margin:6px auto 0;height:36px;display:flex;flex-direction:column}
+  .strip i{display:block;flex:1}
+  .dim{width:850px;margin:14px auto 0;position:relative;height:40px}
+  .dim .ln{position:absolute;left:0;right:0;top:20px;border-top:2px solid var(--blue)}
+  .dim .tk{position:absolute;top:8px;width:0;height:24px;border-left:2px solid var(--blue)}
+  .dim .tx{position:absolute;left:50%;top:0;transform:translateX(-50%);background:#fff;padding:0 22px;font:400 34px/40px "TechM",sans-serif;letter-spacing:6px;color:var(--ink);white-space:nowrap}
+  .deco{position:absolute;top:96px}
+  .grid{position:absolute;left:70px;top:408px;width:1360px;display:grid;grid-template-columns:repeat(4,1fr);gap:26px}
+  .card{position:relative;height:470px;border:3px solid var(--ink);background:rgba(255,255,255,.0)}
+  .card:after{content:"";position:absolute;inset:6px;border:1px solid var(--ink);opacity:.45;pointer-events:none}
+  .card svg.fig{position:absolute;left:0;top:10px;width:100%;height:345px}
+  .bub{position:absolute;left:10px;top:8px;width:44px;height:44px;border:2.5px solid var(--ink);border-radius:50%;background:#fff;z-index:3;text-align:center;line-height:1}
+  .bub b{display:block;font:400 22px/23px "TechB",sans-serif;margin-top:1px}
+  .bub s{display:block;text-decoration:none;border-top:2px solid var(--ink);font:400 10px/15px "Arch",cursive;margin:0 -1px}
+  .elev{position:absolute;right:14px;top:12px;font:400 19px "Arch",cursive;letter-spacing:1px;z-index:3;background:#fff;padding:0 4px}
+  .name{position:absolute;left:0;right:0;bottom:72px;text-align:center;font:400 30px/36px "TechB",sans-serif;letter-spacing:1.5px;white-space:nowrap}
+  .name em{font-style:normal;color:var(--red)}
+  .cnt{position:absolute;left:14px;right:14px;bottom:14px;text-align:center;font:400 22px/24px "Arch",cursive;height:52px;display:flex;align-items:center;justify-content:center;border-top:1.5px solid var(--ink)}
+  .scale{position:absolute;left:0;right:0;top:1398px}
+  .tblock{position:absolute;left:70px;right:70px;top:1468px;height:276px;border:3px solid var(--ink);display:grid;
+    grid-template-columns:250px 1fr 1fr 210px 190px;grid-template-rows:86px 86px 1fr}
+  .tblock>div{border:1.5px solid var(--ink);padding:6px 12px;position:relative;background:rgba(255,255,255,.0)}
+  .tblock small{position:absolute;left:8px;top:3px;font:400 15px "Arch",cursive;letter-spacing:2px;color:#4a5878}
+  .tblock .v{position:absolute;left:12px;bottom:6px;font:400 44px/1 "TechB",sans-serif;letter-spacing:2px;white-space:nowrap}
+  .tblock .v.m{font-family:"TechM",sans-serif;font-size:38px}
+  .tag{grid-column:1/-1;display:flex;align-items:center;justify-content:center;gap:26px;font:400 86px/1 "TechB",sans-serif;letter-spacing:8px}
+  .tag span{color:var(--red)} .tag b{color:var(--blue);font-weight:400} .tag u{color:#c99200;text-decoration:none}
 </style></head>
 <body>
 <svg width="0" height="0" style="position:absolute">
-  <filter id="wob" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency="0.018" numOctaves="2" seed="4" result="n"/>
-    <feDisplacementMap in="SourceGraphic" in2="n" scale="6" xChannelSelector="R" yChannelSelector="G"/></filter>
-  <filter id="wob2" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="9" result="n"/>
-    <feDisplacementMap in="SourceGraphic" in2="n" scale="4" xChannelSelector="R" yChannelSelector="G"/></filter>
-  <filter id="grain"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="2"/><feColorMatrix values="0 0 0 0 .55  0 0 0 0 .5  0 0 0 0 .4  0 0 0 .22 0"/></filter>
+  <defs>
+    <pattern id="denim" width="2.6" height="2.6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="2.6" stroke="#5b86bd" stroke-width=".55"/></pattern>
+    <pattern id="hatch" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="9" stroke="#16213e" stroke-width="1.6"/></pattern>
+    <pattern id="ground" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="6" stroke="#16213e" stroke-width=".9"/></pattern>
+    <marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse"><path d="M0 0L10 5L0 10Z" fill="#1d4fb8"/></marker>
+  </defs>
 </svg>
 <div id="art">
-  <div class="paper"><svg><rect width="100%" height="100%" filter="url(#grain)"/></svg></div>
-  <h1 class="wob2"><span class="r">DANCE</span> IT <span class="b">OUT</span></h1>
-  <!-- tricolour marker underline: yellow / blue / red -->
-  <svg class="under wob" viewBox="0 0 1100 84">
-    <path d="M10 22 C120 0 200 40 320 20 S520 2 640 22 S860 40 1090 10" fill="none" stroke="#ffcc00" stroke-width="18" stroke-linecap="round"/>
-    <path d="M24 44 C150 26 260 58 400 40 S700 26 840 42 S1000 36 1076 28" fill="none" stroke="#1d4fb8" stroke-width="13" stroke-linecap="round"/>
-    <path d="M40 64 C170 48 280 74 420 58 S700 48 840 60 S1000 56 1064 50" fill="none" stroke="#cf142b" stroke-width="11" stroke-linecap="round"/>
+  <div class="bg"></div>
+
+  <!-- drawing sheet frame with zone references -->
+  <svg class="sheet" viewBox="0 0 1500 1800">
+    <rect x="14" y="14" width="1472" height="1772" fill="none" stroke="#16213e" stroke-width="2"/>
+    <rect x="42" y="42" width="1416" height="1716" fill="none" stroke="#16213e" stroke-width="5"/>
+    <g font-family="TechM" font-size="20" fill="#16213e" text-anchor="middle">
+      <text x="375" y="34">A</text><text x="750" y="34">B</text><text x="1125" y="34">C</text>
+      <text x="375" y="1782">A</text><text x="750" y="1782">B</text><text x="1125" y="1782">C</text>
+      <text x="28" y="620">1</text><text x="28" y="1180">2</text><text x="1472" y="620">1</text><text x="1472" y="1180">2</text>
+    </g>
+    <g stroke="#16213e" stroke-width="2"><path d="M562 14v28M938 14v28M1312 14v28M188 14v28M562 1758v28M938 1758v28M1312 1758v28M188 1758v28M14 900h28M1458 900h28M14 330h28M1458 330h28"/></g>
   </svg>
-  <div class="sub wob2">7 steps &bull; 1 beat &bull; puro sabor venezolano!</div>
-  <div class="grid wob" id="grid"></div>
-  <svg class="stars wob" id="stars" viewBox="0 0 760 110"></svg>
-  <div class="foot wob2"><span>repeat.</span> <b>smile.</b> <u>glow.</u> <i>&#9829;</i></div>
+
+  <!-- header -->
+  <div class="head">
+    <h1><span class="r">DANCE</span> IT <span class="b">OUT</span></h1>
+    <div class="strip"><i style="background:#ffcc00"></i><i style="background:#1d4fb8"></i><i style="background:#cf142b"></i></div>
+    <div class="dim"><div class="ln"></div><div class="tk" style="left:0"></div><div class="tk" style="right:0"></div>
+      <div class="tx">8 STEPS &middot; ONE BEAT &middot; SABOR VENEZOLANO</div></div>
+  </div>
+  <svg class="deco" style="left:80px" width="210" height="190" viewBox="0 0 210 190" id="flagdeco"></svg>
+  <svg class="deco" style="right:80px" width="210" height="190" viewBox="0 0 210 190" id="tepuidec"></svg>
+
+  <div class="grid" id="grid"></div>
+  <svg class="scale" width="1500" height="56" viewBox="0 0 1500 56" id="scale"></svg>
+
+  <div class="tblock">
+    <div style="grid-row:1/3"><svg id="flagcell" width="226" height="168" viewBox="0 0 226 168" style="position:absolute;left:10px;top:6px"></svg></div>
+    <div style="grid-column:2/4"><small>PROJECT</small><span class="v">DANCE IT OUT</span></div>
+    <div><small>SCALE</small><span class="v m">1 : 1 BEAT</span></div>
+    <div><small>SHEET</small><span class="v m">A-01</span></div>
+    <div style="grid-column:2/4"><small>DRAWING</small><span class="v m">8 CHOREOGRAPHIC ELEVATIONS</span></div>
+    <div><small>THEME</small><span class="v m">VENEZUELA</span></div>
+    <div><small>REV.</small><span class="v m">A</span></div>
+    <div class="tag"><span>REPEAT.</span><b>SMILE.</b><u>GLOW.</u><svg id="starsrow" width="330" height="70" viewBox="0 0 330 70"></svg></div>
+  </div>
 </div>
+
 <script>
-// Poses reconstructed from frames of a tutorial screen recording (about 3.7s, 8 fps).
-// Joint coordinates on a 100x140 canvas: [x,y]
-const INK="#1d1d22", SKIN="#f3c9a5", HAIR="#2b1a14", DENIM="#8fb8e8";
-const RED="#cf142b", BLUE="#1d4fb8", YEL="#ffcc00";
-const col=[RED,BLUE,YEL,RED,BLUE,YEL,RED];
+// Steps follow the sequence given by the client. "Right" = the dancer's own right (the viewer's left).
+const INK="#16213e", SKIN="#f4d9c2", HAIR="#231a1a", RED="#cf142b", BLUE="#1d4fb8", YEL="#ffcc00", DEN="#bcd3ef", DENL="#5b86bd";
+const stand={rK:[43,108],rF:[40,134],lK:[57,108],lF:[60,134]};
 const poses=[
- {n:"SPARKLE",r:"-1.5deg",cnt:"wiggle fingers by your head",
-  lE:[27,36],lH:[21,10],rE:[73,36],rH:[79,10],lK:[43,108],lF:[39,134],rK:[57,108],rF:[61,134],fx:"spark"},
- {n:"SHIMMY",r:"1.2deg",cnt:"hands drop, flutter",
-  lE:[22,52],lH:[33,42],rE:[78,52],rH:[67,42],lK:[43,108],lF:[39,134],rK:[57,108],rF:[61,134],fx:"shimmy"},
- {n:"SWING OUT",r:"-1deg",cnt:"arms sweep down and out",
-  lE:[26,58],lH:[8,80],rE:[74,58],rH:[92,80],lK:[41,108],lF:[35,134],rK:[59,108],rF:[65,134],fx:"swish"},
- {n:"HIP BOUNCE",r:"1.8deg",cnt:"hands low, knees bounce",
-  lE:[27,62],lH:[40,80],rE:[73,62],rH:[60,80],lK:[33,106],lF:[28,134],rK:[67,106],rF:[72,134],fx:"bounce"},
- {n:"CHEST TAP",r:"-1.8deg",cnt:"pat your heart on the beat",
-  lE:[31,58],lH:[46,47],rE:[69,58],rH:[54,47],lK:[43,108],lF:[40,134],rK:[57,108],rF:[60,134],fx:"tap"},
- {n:"REACH & TAP",r:"1deg",cnt:"one arm out, one hand taps",
-  lE:[24,40],lH:[3,32],rE:[68,60],rH:[54,48],lK:[41,108],lF:[34,134],rK:[58,108],rF:[64,134],fx:"reach"},
- {n:"BLESS & CLAP",r:"-1.2deg",cnt:"hands up high, then clap!",
-  lE:[34,54],lH:[48,33],rE:[66,54],rH:[52,33],lK:[43,108],lF:[39,134],rK:[57,108],rF:[61,134],fx:"burst"}
+ {n:"HANDS ON <em>HEAD</em>",cnt:"both hands rest on the head",
+  rE:[24,28],rH:[40,12],lE:[76,28],lH:[60,12],...stand,T:[[40,12],[60,12]]},
+ {n:"HANDS ON <em>SHOULDERS</em>",cnt:"slide both hands down to the shoulders",
+  rE:[24,56],rH:[36,39],lE:[76,56],lH:[64,39],...stand,T:[[36,39],[64,39]],
+  A:["M30 18 L30 33","M70 18 L70 33"]},
+ {n:"HANDS ON <em>HIPS</em>",cnt:"drop both hands onto the hips",
+  rE:[24,58],rH:[40,77],lE:[76,58],lH:[60,77],rK:[40,108],rF:[35,134],lK:[60,108],lF:[65,134],T:[[40,77],[60,77]],
+  A:["M20 50 L20 70","M80 50 L80 70"]},
+ {n:"CHEST <em>TAP</em>",cnt:"pat the chest with both hands",
+  rE:[31,58],rH:[45,49],lE:[69,58],lH:[55,49],...stand,T:[[45,49],[55,49]],
+  A:["M40 34 L44 43","M60 34 L56 43"]},
+ {n:"RIGHT ARM <em>OUT</em>",cnt:"right arm extends, left hand touches the forearm",
+  rE:[17,40],rH:[-5,41],lE:[41,59],lH:[18,42],...stand,T:[[18,42]],
+  A:["M56 70 Q40 74 24 50"]},
+ {n:"TO THE <em>SHOULDER</em>",cnt:"left hand slides up to the right shoulder",
+  rE:[17,40],rH:[-5,41],lE:[52,58],lH:[38,37],...stand,T:[[38,37]],
+  A:["M12 31 L34 31"]},
+ {n:"HEART <em>TAP</em>",cnt:"left hand reaches out, then taps the heart",
+  rE:[17,40],rH:[-5,41],lE:[67,60],lH:[56,48],...stand,T:[[56,48]],G:[88,40],
+  A:["M85 36 Q86 24 70 28 Q60 31 58 44"]},
+ {n:"<em>CLAP</em>",cnt:"both hands clap at the center",
+  rE:[34,58],rH:[49,46],lE:[66,58],lH:[51,46],rK:[44,108],rF:[42,134],lK:[56,108],lF:[58,134],T:[[50,46]],
+  B:[[50,46]]}
 ];
-const P=(a)=>a[0]+" "+a[1];
-const line=(a,b,w,c)=>`<line x1="${a[0]}" y1="${a[1]}" x2="${b[0]}" y2="${b[1]}" stroke="${c}" stroke-width="${w}" stroke-linecap="round"/>`;
-// outlined "tube" limb through a chain of points: ink outline first, then fill on top (no inner joint lines)
-function tube(pts,w,fill){
-  let o="",f="";
-  for(let i=0;i<pts.length-1;i++){o+=line(pts[i],pts[i+1],w+3.6,INK);f+=line(pts[i],pts[i+1],w,fill);}
-  return o+f;
-}
-const star=(x,y,s,c)=>`<path transform="translate(${x} ${y}) scale(${s})" d="M0 -7l2 5 5 2-5 2-2 5-2-5-5-2 5-2z" fill="${c}" stroke="${INK}" stroke-width="1"/>`;
-function fx(p,c){
-  const T=p.fx,S=`stroke="${c}" stroke-width="3.2" fill="none" stroke-linecap="round"`;
-  if(T==="spark")return star(12,2,1.3,YEL)+star(88,2,1.3,YEL)+star(6,26,.8,c)+star(94,26,.8,c);
-  if(T==="shimmy")return `<path d="M17 38q-6 4 0 8M11 36q-9 7 0 14M83 38q6 4 0 8M89 36q9 7 0 14" ${S}/>`;
-  if(T==="swish")return `<path d="M18 54q-14 6-16 24M82 54q14 6 16 24" ${S} stroke-dasharray="3 5"/>`;
-  if(T==="bounce")return `<path d="M50 112v10m-6-5l6 7 6-7" ${S}/>`;
-  if(T==="tap")return `<path d="M36 42l-6-5M64 42l6-5M50 38v-8" ${S}/>`;
-  if(T==="reach")return `<path d="M-6 46q4-6 0-12M-11 50q8-10 0-20" ${S}/><path d="M60 46l-3-5M66 48l-1-6" ${S}/>`;
-  if(T==="burst")return `<path d="M50 -2v-8M34 4l-7-7M66 4l7-7M26 20l-9-3M74 20l9-3" ${S}/>`;
-  return "";
+const L=(a,b,w,c,extra="")=>`<line x1="${a[0]}" y1="${a[1]}" x2="${b[0]}" y2="${b[1]}" stroke="${c}" stroke-width="${w}" stroke-linecap="round" ${extra}/>`;
+// outlined, tapered limb: ink outline underneath, fill (and optional hatch) on top
+function tube(pts,ws,fill,hatch){
+  let o="",f="",h="";
+  for(let i=0;i<pts.length-1;i++){
+    o+=L(pts[i],pts[i+1],ws[i]+3.2,INK);
+    f+=L(pts[i],pts[i+1],ws[i],fill);
+    if(hatch)h+=L(pts[i],pts[i+1],ws[i]-1.2,"url(#denim)");
+  }
+  return o+f+h;
 }
 function fingers(e,h){
   const dx=h[0]-e[0],dy=h[1]-e[1],m=Math.hypot(dx,dy)||1,ux=dx/m,uy=dy/m;
   let s="";
-  [-34,-12,12,34].forEach(a=>{const r=a*Math.PI/180,c=Math.cos(r),sn=Math.sin(r);
-    const vx=ux*c-uy*sn,vy=ux*sn+uy*c;
-    s+=`<line x1="${h[0]+vx*3}" y1="${h[1]+vy*3}" x2="${h[0]+vx*7}" y2="${h[1]+vy*7}" stroke="${INK}" stroke-width="2.2" stroke-linecap="round"/>`;
-    s+=`<line x1="${h[0]+vx*3}" y1="${h[1]+vy*3}" x2="${h[0]+vx*6.6}" y2="${h[1]+vy*6.6}" stroke="${SKIN}" stroke-width="1" stroke-linecap="round"/>`;});
+  [[-38,.82],[-14,1],[10,1.05],[34,.9],[-78,.6]].forEach(([a,len])=>{
+    const r=a*Math.PI/180,c=Math.cos(r),sn=Math.sin(r),vx=ux*c-uy*sn,vy=ux*sn+uy*c;
+    const p0=[h[0]+vx*2,h[1]+vy*2],p1=[h[0]+vx*(2+6.4*len),h[1]+vy*(2+6.4*len)];
+    s+=L(p0,p1,3.6,INK)+L(p0,p1,1.7,SKIN);
+  });
   return s;
 }
-function figure(p,c){
-  const sL=[41,39],sR=[59,39],hipL=[45,77],hipR=[55,77];
-  // long dark hair behind the body
-  const hairBack=`<path d="M37 14Q35 -3 50 2Q66 -3 63 14Q68 30 65 47Q58 50 57 41L43 41Q42 50 35 47Q32 30 37 14Z" fill="${HAIR}" stroke="${INK}" stroke-width="2"/>
-    <path d="M38 22Q37 34 39 44M62 22Q63 34 61 44" stroke="#5a3a2a" stroke-width="1.2" fill="none" stroke-linecap="round"/>`;
-  // wide-leg jeans
-  const legs=tube([hipL,p.lK,p.lF],14.5,DENIM)+tube([hipR,p.rK,p.rF],14.5,DENIM);
-  const seams=line(hipL,p.lK,1,"#5b86bd")+line(hipR,p.rK,1,"#5b86bd");
-  const waist=`<path d="M42.5 68H57.5L59 80H41Z" fill="${DENIM}" stroke="${INK}" stroke-width="2.4" stroke-linejoin="round"/>
-    <path d="M42 72H58" stroke="#5b86bd" stroke-width="1.6"/><circle cx="50" cy="72" r="1.8" fill="${YEL}" stroke="${INK}" stroke-width="1"/>`;
-  const shoes=[[p.lF,-3],[p.rF,3]].map(([f,dx])=>`<path d="M${f[0]-7+dx} ${f[1]-1}Q${f[0]+dx} ${f[1]-5} ${f[0]+7+dx} ${f[1]-1}Q${f[0]+10+dx} ${f[1]+5} ${f[0]+dx} ${f[1]+6}Q${f[0]-10+dx} ${f[1]+5} ${f[0]-7+dx} ${f[1]-1}Z" fill="#fff" stroke="${INK}" stroke-width="2.4" stroke-linejoin="round"/>
-    <path d="M${f[0]-6+dx} ${f[1]+3}Q${f[0]+dx} ${f[1]+6} ${f[0]+6+dx} ${f[1]+3}" stroke="${c}" stroke-width="2.4" fill="none" stroke-linecap="round"/>`).join("");
-  // midriff + halter crop top
-  const mid=`<path d="M43 56Q50 60 57 56L57.5 69H42.5Z" fill="${SKIN}" stroke="${INK}" stroke-width="2.4" stroke-linejoin="round"/><circle cx="50" cy="64" r=".9" fill="${INK}"/>`;
-  const top=`<path d="M40.5 38Q50 44 59.5 38L58 57Q50 61 42 57Z" fill="${c}" stroke="${INK}" stroke-width="2.4" stroke-linejoin="round"/>
-    <circle cx="50" cy="50" r="2.6" fill="none" stroke="${INK}" stroke-width="1.4"/><path d="M45 41L43 33M55 41L57 33" stroke="${INK}" stroke-width="1.6" stroke-linecap="round"/>`;
-  // arms
-  const arms=tube([sL,p.lE,p.lH],6.4,SKIN)+tube([sR,p.rE,p.rH],6.4,SKIN);
-  const hands=[p.lH,p.rH].map((h,i)=>fingers(i?p.rE:p.lE,h)+`<circle cx="${h[0]}" cy="${h[1]}" r="3.8" fill="${SKIN}" stroke="${INK}" stroke-width="2"/>`).join("");
-  // neck + head + face
-  const neck=`<path d="M46 27H54L54.5 38Q50 41 45.5 38Z" fill="${SKIN}" stroke="${INK}" stroke-width="2.2" stroke-linejoin="round"/>`;
-  const head=`<ellipse cx="50" cy="17" rx="10.5" ry="12.5" fill="${SKIN}" stroke="${INK}" stroke-width="2.6"/>
-    <path d="M39 15Q40 2 52 3.5Q62 4 61 15Q57 8 49 9Q42 10 39 15Z" fill="${HAIR}" stroke="${INK}" stroke-width="1.6" stroke-linejoin="round"/>
-    <path d="M44.5 16Q46.5 13.8 48.5 16M51.5 16Q53.5 13.8 55.5 16" stroke="${INK}" stroke-width="1.8" fill="none" stroke-linecap="round"/>
-    <path d="M50 17.5l-1.2 3.2h2.4" stroke="${INK}" stroke-width="1.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-    <path d="M45 22.4Q50 28.5 55 22.4Q50 24 45 22.4Z" fill="${RED}" stroke="${INK}" stroke-width="1.6" stroke-linejoin="round"/>
-    <circle cx="42.3" cy="21.5" r="2.4" fill="${RED}" opacity=".28"/><circle cx="57.7" cy="21.5" r="2.4" fill="${RED}" opacity=".28"/>
-    <circle cx="39.6" cy="19" r="1.5" fill="${YEL}" stroke="${INK}" stroke-width="1"/><circle cx="60.4" cy="19" r="1.5" fill="${YEL}" stroke="${INK}" stroke-width="1"/>`;
-  return hairBack+legs+seams+waist+shoes+mid+top+arms+hands+neck+head;
+function figure(p){
+  const rS=[41,39],lS=[59,39],hipR=[45,77],hipL=[55,77];
+  const hairBack=`<path d="M37 14Q35 -3 50 2Q66 -3 63 14Q68 30 65 47Q58 50 57 41L43 41Q42 50 35 47Q32 30 37 14Z" fill="${HAIR}" stroke="${INK}" stroke-width="1.6"/>
+    <path d="M38 20Q37 33 39 45M40.5 20Q39.5 33 41 44M62 20Q63 33 61 45M59.5 20Q60.5 33 59 44" stroke="#6b4a3a" stroke-width=".8" fill="none" stroke-linecap="round"/>`;
+  const legs=tube([hipR,p.rK,p.rF],[15,12.6],DEN,true)+tube([hipL,p.lK,p.lF],[15,12.6],DEN,true);
+  const creases=[[p.rK,-1],[p.lK,1]].map(([k,s])=>`<path d="M${k[0]-4} ${k[1]-3}q4 2 8 0M${k[0]-3.5} ${k[1]+1}q3.5 1.6 7 0" stroke="${DENL}" stroke-width=".8" fill="none" stroke-linecap="round"/>`).join("");
+  const cuffs=[p.rF,p.lF].map(f=>`<path d="M${f[0]-6} ${f[1]-6}h12" stroke="${INK}" stroke-width="1.2"/>`).join("");
+  const seams=L(hipR,p.rK,.7,DENL)+L(hipL,p.lK,.7,DENL);
+  const waist=`<path d="M42.5 67H57.5L59 80H41Z" fill="${DEN}" stroke="${INK}" stroke-width="1.8" stroke-linejoin="round"/>
+    <path d="M42 71.4H58" stroke="${INK}" stroke-width="1"/><rect x="48" y="69.8" width="4" height="3.2" fill="${YEL}" stroke="${INK}" stroke-width=".8"/>
+    <path d="M50 73V80M45.5 72V76M54.5 72V76" stroke="${DENL}" stroke-width=".8"/>`;
+  const shoes=[[p.rF,-3],[p.lF,3]].map(([f,dx])=>`<path d="M${f[0]-7+dx} ${f[1]-2}Q${f[0]+dx} ${f[1]-6} ${f[0]+7+dx} ${f[1]-2}Q${f[0]+10+dx} ${f[1]+3} ${f[0]+9+dx} ${f[1]+6}H${f[0]-9+dx}Q${f[0]-10+dx} ${f[1]+2} ${f[0]-7+dx} ${f[1]-2}Z" fill="${RED}" stroke="${INK}" stroke-width="1.8" stroke-linejoin="round"/>
+    <path d="M${f[0]-9.4+dx} ${f[1]+4.2}H${f[0]+9.4+dx}" stroke="#fff" stroke-width="2.2"/><path d="M${f[0]-9.4+dx} ${f[1]+6}H${f[0]+9.4+dx}" stroke="${INK}" stroke-width="1"/>
+    <path d="M${f[0]-3+dx} ${f[1]-4}l3 2M${f[0]+dx} ${f[1]-4.6}l3 2" stroke="#fff" stroke-width="1" stroke-linecap="round"/>`).join("");
+  const mid=`<path d="M43 56Q50 60 57 56L57.5 68H42.5Z" fill="${SKIN}" stroke="${INK}" stroke-width="1.8" stroke-linejoin="round"/><circle cx="50" cy="63" r=".8" fill="${INK}"/>`;
+  const top=`<path d="M40.5 38Q50 44 59.5 38L58 57Q50 61 42 57Z" fill="${YEL}" stroke="${INK}" stroke-width="1.8" stroke-linejoin="round"/>
+    <path d="M44 41.5Q50 46 56 41.5M43 57Q50 54 57 57" stroke="${INK}" stroke-width=".9" fill="none"/>
+    <circle cx="50" cy="49.5" r="2.4" fill="none" stroke="${INK}" stroke-width="1.1"/><path d="M45 41L43.4 32.5M55 41L56.6 32.5" stroke="${INK}" stroke-width="1.3" stroke-linecap="round"/>`;
+  const arms=tube([rS,p.rE,p.rH],[6.8,5.8],SKIN)+tube([lS,p.lE,p.lH],[6.8,5.8],SKIN);
+  const wrist=[[p.rE,p.rH],[p.lE,p.lH]].map(([e,h])=>{const dx=h[0]-e[0],dy=h[1]-e[1],m=Math.hypot(dx,dy)||1,ux=dx/m,uy=dy/m;const c=[h[0]-ux*3.4,h[1]-uy*3.4];return `<circle cx="${c[0]}" cy="${c[1]}" r="3.3" fill="none" stroke="${BLUE}" stroke-width="1.3"/>`}).join("");
+  const hands=fingers(p.rE,p.rH)+fingers(p.lE,p.lH)+[p.rH,p.lH].map(h=>`<circle cx="${h[0]}" cy="${h[1]}" r="3.7" fill="${SKIN}" stroke="${INK}" stroke-width="1.6"/>`).join("");
+  const neck=`<path d="M46 27H54L54.5 38Q50 41 45.5 38Z" fill="${SKIN}" stroke="${INK}" stroke-width="1.6" stroke-linejoin="round"/>`;
+  const head=`<ellipse cx="50" cy="17" rx="10.5" ry="12.5" fill="${SKIN}" stroke="${INK}" stroke-width="1.9"/>
+    <path d="M39 15Q40 2 52 3.5Q62 4 61 15Q57 8 49 9Q42 10 39 15Z" fill="${HAIR}" stroke="${INK}" stroke-width="1.2" stroke-linejoin="round"/>
+    <path d="M44 7Q47 5 51 5M47 8.5Q51 6 55 6.4" stroke="#6b4a3a" stroke-width=".7" fill="none" stroke-linecap="round"/>
+    <path d="M43.6 13.6Q46 12.4 48.4 13.4M51.6 13.4Q54 12.4 56.4 13.6" stroke="${INK}" stroke-width="1.1" fill="none" stroke-linecap="round"/>
+    <path d="M44.5 16.4Q46.5 14.2 48.5 16.4M51.5 16.4Q53.5 14.2 55.5 16.4" stroke="${INK}" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+    <path d="M45 15.7l-1.4-.8M48 15l.3-1M52 15l-.3-1M55 15.7l1.4-.8" stroke="${INK}" stroke-width=".7" stroke-linecap="round"/>
+    <path d="M50 17.4l-1.2 3.2h2.4" stroke="${INK}" stroke-width="1" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M45 22.4Q50 28.4 55 22.4Q50 24 45 22.4Z" fill="${RED}" stroke="${INK}" stroke-width="1.3" stroke-linejoin="round"/>
+    <circle cx="42.3" cy="21.3" r="2.3" fill="${RED}" opacity=".25"/><circle cx="57.7" cy="21.3" r="2.3" fill="${RED}" opacity=".25"/>
+    <circle cx="39.6" cy="19.2" r="1.4" fill="${YEL}" stroke="${INK}" stroke-width=".9"/><circle cx="60.4" cy="19.2" r="1.4" fill="${YEL}" stroke="${INK}" stroke-width=".9"/>`;
+  return hairBack+legs+creases+seams+cuffs+waist+shoes+mid+top+arms+wrist+hands+neck+head;
 }
+// drafting furniture: level lines, centre axis, floor with ground hatch, height dimension
+function drafting(){
+  const lv=[[4.5,"HEAD"],[39,"SHLDR"],[67,"WAIST"],[108,"KNEE"],[140.5,"FLOOR"]];
+  let s=`<line x1="50" y1="-12" x2="50" y2="146" stroke="${RED}" stroke-width=".5" stroke-dasharray="8 2 1.5 2" opacity=".7"/>`;
+  lv.forEach(([y,t])=>{
+    s+=`<line x1="-12" y1="${y}" x2="118" y2="${y}" stroke="${BLUE}" stroke-width=".45" stroke-dasharray="3 2" opacity=".6"/>
+        <text x="-28" y="${y-1.2}" text-anchor="start" font-family="Arch" font-size="5.2" fill="${BLUE}">${t}</text>`;
+  });
+  s+=`<line x1="-14" y1="140.5" x2="118" y2="140.5" stroke="${INK}" stroke-width="1.4"/>
+      <rect x="-14" y="140.5" width="132" height="5" fill="url(#ground)"/>`;
+  s+=`<line x1="124" y1="4.5" x2="124" y2="140.5" stroke="${BLUE}" stroke-width=".6"/>
+      <g stroke="${BLUE}" stroke-width=".7"><line x1="121.5" y1="7" x2="126.5" y2="2"/><line x1="121.5" y1="143" x2="126.5" y2="138"/>
+      ${[39,67,108].map(y=>`<line x1="122.4" y1="${y+1.6}" x2="125.6" y2="${y-1.6}"/>`).join("")}</g>
+      <text transform="translate(120.5 76) rotate(-90)" text-anchor="middle" font-family="Arch" font-size="5" fill="${BLUE}">OVERALL HEIGHT</text>`;
+  return s;
+}
+const target=([x,y])=>`<g stroke="${RED}" stroke-width=".9" fill="none"><circle cx="${x}" cy="${y}" r="3.8"/><line x1="${x-6.5}" y1="${y}" x2="${x+6.5}" y2="${y}"/><line x1="${x}" y1="${y-6.5}" x2="${x}" y2="${y+6.5}"/></g>`;
 const grid=document.getElementById("grid");
 poses.forEach((p,i)=>{
-  const c=col[i], numCol=(c===YEL)?INK:"#fff";
+  const k=String(i+1).padStart(2,"0");
+  const arrows=(p.A||[]).map(d=>`<path d="${d}" fill="none" stroke="${BLUE}" stroke-width="1.5" stroke-linecap="round" marker-end="url(#ah)"/>`).join("");
+  const ghost=p.G?`<circle cx="${p.G[0]}" cy="${p.G[1]}" r="4.4" fill="none" stroke="${BLUE}" stroke-width="1" stroke-dasharray="2 1.6"/>`:"";
+  const burst=(p.B||[]).map(([x,y])=>`<path d="M${x} ${y-7}v-6M${x-7} ${y-4}l-5-4M${x+7} ${y-4}l5-4" stroke="${BLUE}" stroke-width="1.6" stroke-linecap="round" fill="none"/>`).join("");
   grid.insertAdjacentHTML("beforeend",
-   `<div class="card" style="--c:${c};--r:${p.r}"><div class="tape"></div><div class="num" style="color:${numCol}">${i+1}</div>
-    <svg viewBox="-14 -16 128 164"><ellipse cx="50" cy="72" rx="56" ry="68" fill="${c}" opacity=".12"/>${fx(p,c)}${figure(p,c)}</svg>
+   `<div class="card"><div class="bub"><b>${i+1}</b><s>A-${k}</s></div><div class="elev">ELEV. ${k}</div>
+    <svg class="fig" viewBox="-30 -16 160 164">${drafting()}${figure(p)}${ghost}${arrows}${burst}${p.T.map(target).join("")}</svg>
     <div class="name">${p.n}</div><div class="cnt">${p.cnt}</div></div>`);
 });
 
-// ---- 8th cell: Venezuelan panel (waving flag, 8 stars, tepui mountains, maracas) ----
-function flag(){
-  const x0=14,x1=90,W=(x)=>3.6*Math.sin((x-14)/9.5);
-  const stripe=(k,fill)=>{
-    const t=14+k*17,b=t+17;let a="",d="";
-    for(let x=x0;x<=x1;x+=2){a+=`${x===x0?"M":"L"}${x} ${(t+W(x)).toFixed(1)} `;}
-    for(let x=x1;x>=x0;x-=2){d+=`L${x} ${(b+W(x)).toFixed(1)} `;}
-    return `<path d="${a}${d}Z" fill="${fill}" stroke="${INK}" stroke-width="2.4" stroke-linejoin="round"/>`;
-  };
-  let st="";
-  for(let i=0;i<8;i++){
-    const ang=(-140+i*(100/7))*Math.PI/180,x=52+22*Math.cos(ang),y=14+17*1.5+ -22*Math.sin(ang)*0.0 + (22-22*Math.cos((-40-(-140))*Math.PI/360)*0) ;
-    const px=52+23*Math.sin((i-3.5)*0.28), py=31+17-6+W(px)+ (Math.abs(i-3.5)*Math.abs(i-3.5))*0.55 -4;
-    st+=`<path transform="translate(${px.toFixed(1)} ${py.toFixed(1)}) scale(.46)" d="M0 -7l2 5 5 2-5 2-2 5-2-5-5-2 5-2z" fill="#fff" stroke="${INK}" stroke-width="1.6"/>`;
-  }
-  return `<line x1="11" y1="8" x2="11" y2="86" stroke="${INK}" stroke-width="4" stroke-linecap="round"/><circle cx="11" cy="7" r="3.6" fill="${YEL}" stroke="${INK}" stroke-width="2"/>`+
-    stripe(0,YEL)+stripe(1,BLUE)+stripe(2,RED)+st;
+// ---- Venezuelan elements ----
+const starPath="M0 -7l2 5 5 2-5 2-2 5-2-5-5-2 5-2z";
+function flagSVG(w,h,x,y){ // flat flag elevation, 3:2
+  const sh=h/3; let st="";
+  for(let i=0;i<8;i++){const t=(i-3.5)/3.5,sx=x+w/2+t*w*.27,sy=y+sh+sh*.58-Math.cos(t*1.15)*sh*.2+sh*.14;
+    st+=`<path transform="translate(${sx} ${sy}) scale(${w/150})" d="${starPath}" fill="#fff" stroke="${INK}" stroke-width="1"/>`;}
+  return `<rect x="${x}" y="${y}" width="${w}" height="${sh}" fill="${YEL}" stroke="${INK}" stroke-width="2.2"/>
+    <rect x="${x}" y="${y+sh}" width="${w}" height="${sh}" fill="${BLUE}" stroke="${INK}" stroke-width="2.2"/>
+    <rect x="${x}" y="${y+2*sh}" width="${w}" height="${sh}" fill="${RED}" stroke="${INK}" stroke-width="2.2"/>${st}`;
 }
-const maraca=(hx,hy,bx,by,fill,dots)=>`<line x1="${hx}" y1="${hy}" x2="${bx}" y2="${by}" stroke="${INK}" stroke-width="7" stroke-linecap="round"/><line x1="${hx}" y1="${hy}" x2="${bx}" y2="${by}" stroke="#d9a066" stroke-width="3.4" stroke-linecap="round"/>
-  <ellipse cx="${hx}" cy="${hy-6}" rx="10" ry="12" fill="${fill}" stroke="${INK}" stroke-width="2.6" transform="rotate(${hx<50?-18:18} ${hx} ${hy})"/>
-  <g fill="${dots}" stroke="${INK}" stroke-width=".8"><circle cx="${hx-3}" cy="${hy-9}" r="1.8"/><circle cx="${hx+3}" cy="${hy-4}" r="1.8"/><circle cx="${hx-2}" cy="${hy-1}" r="1.6"/></g>`;
-grid.insertAdjacentHTML("beforeend",
- `<div class="card" style="--c:${BLUE};--r:1.6deg"><div class="tape"></div>
-  <svg viewBox="-4 0 108 140"><ellipse cx="50" cy="72" rx="52" ry="66" fill="${YEL}" opacity=".16"/>
-   <path d="M4 132L11 96L17 92H40L46 100L52 132Z" fill="#cfe5c8" stroke="${INK}" stroke-width="2.4" stroke-linejoin="round"/>
-   <path d="M50 132L58 106L64 102H86L93 110L100 132Z" fill="#b9d8b2" stroke="${INK}" stroke-width="2.4" stroke-linejoin="round"/>
-   <path d="M20 100v14M26 98v18M70 112v12M78 110v14" stroke="#6aa06a" stroke-width="1.4" stroke-linecap="round"/>
-   ${flag()}
-   ${maraca(32,108,48,134,RED,YEL)}${maraca(68,108,52,134,YEL,BLUE)}
-   <g transform="translate(88 18)"><circle r="7" fill="${YEL}" stroke="${INK}" stroke-width="2"/><path d="M0 -12v-4M0 12v4M-12 0h-4M12 0h4M-9 -9l-3 -3M9 -9l3 -3M-9 9l-3 3M9 9l3 3" stroke="${INK}" stroke-width="1.8" stroke-linecap="round"/></g>
-  </svg>
-  <div class="name">VENEZUELA</div><div class="cnt">&iexcl;qu&eacute; ch&eacute;vere!</div></div>`);
-
-// row of 8 stars along a gentle arc, like the stars on the flag
+document.getElementById("flagdeco").innerHTML=
+  `<line x1="14" y1="6" x2="14" y2="178" stroke="${INK}" stroke-width="5" stroke-linecap="round"/><circle cx="14" cy="6" r="6" fill="${YEL}" stroke="${INK}" stroke-width="2.2"/>`+
+  flagSVG(168,112,22,14)+
+  `<g stroke="${BLUE}" stroke-width="1.6"><line x1="22" y1="146" x2="190" y2="146"/><line x1="22" y1="139" x2="22" y2="153"/><line x1="190" y1="139" x2="190" y2="153"/></g>
+   <text x="106" y="172" text-anchor="middle" font-family="TechM" font-size="26" letter-spacing="3" fill="${INK}">3 : 2</text>`;
+document.getElementById("flagcell").innerHTML=
+  `<line x1="14" y1="8" x2="14" y2="160" stroke="${INK}" stroke-width="4.5" stroke-linecap="round"/><circle cx="14" cy="8" r="5" fill="${YEL}" stroke="${INK}" stroke-width="2"/>`+flagSVG(186,124,24,14)+
+  `<text x="117" y="158" text-anchor="middle" font-family="Arch" font-size="17" letter-spacing="2" fill="#4a5878">8 STARS &middot; 3 BANDS</text>`;
+// tepui (flat-topped mountain) elevation with hatching and level marks
+document.getElementById("tepuidec").innerHTML=
+  `<path d="M6 150 L26 70 L40 56 L104 52 L120 66 L136 74 L150 150Z" fill="#fff" stroke="${INK}" stroke-width="2.4" stroke-linejoin="round"/>
+   <path d="M26 70 L40 56 L104 52 L120 66 L136 74 L150 150H100L90 100L70 150H6Z" fill="url(#hatch)" opacity=".55"/>
+   <path d="M120 150L150 150L136 74L132 100Z" fill="#fff" stroke="${INK}" stroke-width="2" stroke-linejoin="round"/>
+   <path d="M150 150 L168 112 L182 100 L204 106 L206 150Z" fill="#fff" stroke="${INK}" stroke-width="2.2" stroke-linejoin="round"/>
+   <path d="M40 56 L46 46 L96 45 L104 52M52 46L56 40" fill="none" stroke="${INK}" stroke-width="1.8"/>
+   <line x1="0" y1="150" x2="210" y2="150" stroke="${INK}" stroke-width="2.6"/><rect x="0" y="150" width="210" height="9" fill="url(#ground)"/>
+   <g stroke="${BLUE}" stroke-width="1.5"><line x1="198" y1="45" x2="198" y2="150"/><line x1="192" y1="45" x2="204" y2="45"/><line x1="192" y1="150" x2="204" y2="150"/></g>
+   <text x="104" y="178" text-anchor="middle" font-family="TechM" font-size="26" letter-spacing="3" fill="${INK}">TEPUI ELEV.</text>`;
+// count scale bar 0..8
+(function(){
+  let s=`<text x="438" y="22" text-anchor="end" font-family="TechM" font-size="26" letter-spacing="3" fill="${INK}">SCALE</text>`;
+  for(let i=0;i<8;i++){s+=`<rect x="${460+i*72}" y="6" width="72" height="18" fill="${i%2?"#fff":INK}" stroke="${INK}" stroke-width="2"/>`;}
+  for(let i=0;i<=8;i++){s+=`<line x1="${460+i*72}" y1="24" x2="${460+i*72}" y2="31" stroke="${INK}" stroke-width="2"/><text x="${460+i*72}" y="50" text-anchor="middle" font-family="Arch" font-size="20" fill="${INK}">${i}</text>`;}
+  s+=`<text x="1058" y="22" font-family="TechM" font-size="26" letter-spacing="3" fill="${INK}">COUNTS</text>`;
+  document.getElementById("scale").innerHTML=s;
+})();
+// 8-star arc in the title block
 (function(){
   let s="";
-  for(let i=0;i<8;i++){
-    const x=60+i*91.4,y=58-Math.cos((i-3.5)/3.5*1.2)*26+26;
-    s+=`<path transform="translate(${x} ${y}) scale(${i%2?3.4:3.9}) rotate(${(i%3-1)*6})" d="M0 -7l2 5 5 2-5 2-2 5-2-5-5-2 5-2z" fill="${i%2?YEL:"#fff"}" stroke="${INK}" stroke-width="1.1" stroke-linejoin="round"/>`;
-  }
-  document.getElementById("stars").innerHTML=s;
+  for(let i=0;i<8;i++){const t=(i-3.5)/3.5,x=165+t*140,y=36-Math.cos(t*1.15)*14+8;
+    s+=`<path transform="translate(${x} ${y}) scale(2.6)" d="${starPath}" fill="${i%2?YEL:"#fff"}" stroke="${INK}" stroke-width="1.1" stroke-linejoin="round"/>`;}
+  document.getElementById("starsrow").innerHTML=s;
 })();
 </script></body></html>
